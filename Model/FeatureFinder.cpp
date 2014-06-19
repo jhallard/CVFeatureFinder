@@ -2,7 +2,7 @@
 
 // default constructor
 FeatureFinder::FeatureFinder() 
-: LEFT_IMG(1), RIGHT_IMG(2), nopde(new ros::NodeHandle) WINDOW_NAME("CVFeatureFinderWindow")
+: LEFT_IMG(1), RIGHT_IMG(2), node(new ros::NodeHandle), WINDOW_NAME("CVFeatureFinderWindow")
 {
     this->videoEnabled = false;
     leftFrame = new ImageHelper("../pics/defaultListfile.txt");
@@ -10,6 +10,10 @@ FeatureFinder::FeatureFinder()
 
     this->detector = nullptr;
     this->extractor = nullptr;
+
+    this->setFeatureDetector("SURF");
+    this->setFeatureExtractor("SIFT");
+
 
     // create the window for our program
     cv::namedWindow(WINDOW_NAME);
@@ -76,6 +80,24 @@ bool FeatureFinder::setFeatureDetector( string type )
     return true;
 }
 
+bool FeatureFinder::setFeatureExtractor( string type )
+{
+    if(type == "SURF" || type == "surf" || type == "Surf")
+    {
+        this->extractor = cv::DescriptorExtractor::create("SURF");
+        return true;
+    }
+    else if(type == "SIFT" || type == "Sift" || type == "sift")
+    {
+       this->extractor = cv::DescriptorExtractor::create("SIFT");
+       return true;
+    }
+    else
+    {
+        ROS_ERROR("Invalid type passed to setFeatureExtractor");
+        return false    }
+}
+
 
 bool enableVideoMode()
 {
@@ -97,9 +119,6 @@ bool enableVideoMode()
 
     return true; // everything worked!
 }
-
-
-
 
 
 // callback for our video feed

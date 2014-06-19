@@ -1,6 +1,9 @@
 #ifndef FEATURE_FINDER_H_
 #define FEATURE_FINDER_H_
 
+// Self-Defined includes
+#include "ImageHelper.h"
+
 // std c++ includes
 #include <vector>
 #include <string>
@@ -50,8 +53,6 @@ private:
     ros::NodeHandle * node;          // our ROS node to recieve published video data
     ros::Subscriber subscriber;    // subscribes to the kinect data feed
 
-    const string WINDOW_NAME;   // name of the window that this program makes
-
 
     //----===========================----//
     // ---  PRIVATE HELPER FUNCTIONS --- //
@@ -59,6 +60,9 @@ private:
 
     // changes the type of feature detector we are using (SIFT, SURF, ORB, MSER, etc.)
     bool setFeatureDetector( string type );
+
+    // changes the type of extractor we are using (SIFT or SURF currently)
+    bool setFeatureExtractor( string type);
 
     // detects and computes descriptors for either the left or right image/video feed
     bool detectAndDescribeFeatures(int leftright); 
@@ -107,7 +111,7 @@ public:
     const int LEFT_IMG;
     const int RIGHT_IMG;
 
-    bool videoEnabled;
+    const string WINDOW_NAME;   // name of the window that this program makes
 
 
 

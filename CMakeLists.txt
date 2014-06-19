@@ -9,9 +9,9 @@ FIND_PACKAGE(Qt4 REQUIRED)
 INCLUDE(${QT_USE_FILE})
 ADD_DEFINITIONS(${QT_DEFINITIONS})
 
-SET(CVFeatureFinder_SOURCES main.cpp mainwindow.cpp)
+SET(CVFeatureFinder_SOURCES Controller/main.cpp Model/FeatureFinder.cpp Model/ImageHelper.cpp)
 #SET(test_FORMS mainwindow.ui)
-SET(CVFeatureFinder_HEADERS mainwindow.h)
+SET(CVFeatureFinder_HEADERS Model/FeatureFinder.h Model/ImageHelper.h)
 
 QT4_WRAP_CPP(test_HEADERS_MOC ${test_HEADERS})
 

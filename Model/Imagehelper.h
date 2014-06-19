@@ -1,6 +1,16 @@
 #ifndef IMAGE_HELPER_H_
 #define IMAGE_HELPER_H_
 
+// cv includes
+#include <opencv2/opencv.hpp>
+#include <cv_bridge/cv_bridge.h>
+#include <image_transport/image_transport.h>
+#include <opencv2/imgproc/imgproc.hpp>
+#include <opencv2/highgui/highgui.hpp>
+#include <opencv2/nonfree/nonfree.hpp>
+#include "opencv2/core/core.hpp"
+#include "opencv2/features2d/features2d.hpp"
+
 using namespace cv;
 using namesapce std;
 
@@ -14,7 +24,7 @@ private:
 
     int currentFileIndex;
     vector<string> filenames; // names of the files that we cycle through for the base images
-    string listoffiles;       // a .txt file with a list of the paths to the images we want to use
+    string listOfFiles;       // a .txt file with a list of the paths to the images we want to use
 
     bool videoMode; // true if we want to use a video feed as the query images
     bool pause;     // True is the user wants to pause the incoming video feed
@@ -28,7 +38,7 @@ public:
     bool setNextImage();
 
     bool setImage(Mat newimg);
-    Mat  getImage() const;
+    Mat & getImage() const;
 
     bool setKeyPoints(vector<KeyPoint> kps);
     vector<KeyPoint> & getKeyPoints() const;
