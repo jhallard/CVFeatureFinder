@@ -27,7 +27,7 @@
 #include "opencv2/features2d/features2d.hpp"
 
 using namespace cv;
-using namesapce std;
+using namespace std;
 
 class FeatureFinder
 {
@@ -58,6 +58,9 @@ private:
     // ---  PRIVATE HELPER FUNCTIONS --- //
     //----===========================----//
 
+    // private helper function called by the constructors
+    void init();
+
     // changes the type of feature detector we are using (SIFT, SURF, ORB, MSER, etc.)
     bool setFeatureDetector( string type );
 
@@ -72,9 +75,6 @@ private:
 
     // show the currently stored images in the left/right ImageHelper objects to the window
     bool showCurrentFrames();
-
-    // callback for our video feed
-    void videoCallback (const sensor_msgs::Image::ConstPtr& img);
 
     // changes the currently shown image for either the left or right frame to the next one in the lest of filenames stored in the object
     // returns false if the frame is currently in video mode 
@@ -99,6 +99,9 @@ public:
     ImageHelper * getLeft() const;  // get a pointer to the left image helper
     ImageHelper * getRight() const; // get a poiter to the right image helper
 
+    // callback for our video feed
+    void videoCallback (const sensor_msgs::Image::ConstPtr& img);
+
     bool enableVideoMode(); // this only needs to be called once to connect to the webcam/kinect camera. Once that is done then the user can toggle the videomode of 
                             // the left of right frame by calling the ImageHelper::togglevideoMode() function.
 
@@ -110,6 +113,7 @@ public:
     //----===========================----//
     const int LEFT_IMG;
     const int RIGHT_IMG;
+    bool videoEnabled;
 
     const string WINDOW_NAME;   // name of the window that this program makes
 

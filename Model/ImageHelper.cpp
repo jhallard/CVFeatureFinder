@@ -6,13 +6,13 @@ ImageHelper::ImageHelper(string listfile, bool videomode)
     this->pause = false;
     this->currentFileIndex = 0;
     this->listOfFiles = listfile;
-    this->setListOfFiles(listfile);
+    this->setListofFiles(listfile);
 }
 
 
 vector<string> ImageHelper::getListOfFiles() const
 {
-    return this->listOfFiles;
+    return this->filenames;
 }
 bool ImageHelper::setListofFiles(string listfile)
 {
@@ -20,7 +20,7 @@ bool ImageHelper::setListofFiles(string listfile)
     this->currentFileIndex = 0;
     this->listOfFiles = listfile;
     
-    ifstream file(this->listOfFiles);
+    ifstream file(this->listOfFiles.c_str());
     if ( !file.is_open() )
         return false;
 

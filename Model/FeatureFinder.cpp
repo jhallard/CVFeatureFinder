@@ -4,6 +4,29 @@
 FeatureFinder::FeatureFinder() 
 : LEFT_IMG(1), RIGHT_IMG(2), node(new ros::NodeHandle), WINDOW_NAME("CVFeatureFinderWindow")
 {
+    this->init();
+}
+
+// listfile is the path to .txt file containing the paths to the images that the user wants the left/right frames to cycle through
+FeatureFinder::FeatureFinder(string leftlistfile, string rightlistfile)
+: LEFT_IMG(1), RIGHT_IMG(2), node(new ros::NodeHandle), WINDOW_NAME("CVFeatureFinderWindow")
+{
+    this->init();
+
+    if(!leftFrame->setListofFiles(leftlistfile))
+        ROS_ERROR("Invalid list of filenames for left frame");
+    else
+        std:: cout << "\n Files for left Have been set successfully";
+
+    if(!rightFrame->setListofFiles(rightlistfile))
+        ROS_ERROR("Invalid list of filenames for right frame");
+    else
+        std:: cout << "\n Files for left Have been set successfully";
+
+}
+
+ void FeatureFinder::init()
+ {
     this->videoEnabled = false;
     leftFrame = new ImageHelper("../pics/defaultListfile.txt");
     rightFrame = new ImageHelper("../pics/defaultListfile.txt");
@@ -24,24 +47,7 @@ FeatureFinder::FeatureFinder()
 
     // show the matches between the default images
     showCurrentFrames();
-
-
-}
-
-// listfile is the path to .txt file containing the paths to the images that the user wants the left/right frames to cycle through
-FeatureFinder::FeatureFinder(string leftlistfile, string rightlistfile) :
-FeatureFinder()
-{
-    if(!leftFrame.setListofFiles(leftlistfile))
-        ROS_ERROR("Invalid list of filenames for left frame");
-    else
-        std:: cout << "\n Files for left Have been set successfully";
-
-    if(!rightFrame.setListofFiles(rightlistfile))
-        ROS_ERROR("Invalid list of filenames for right frame");
-    else
-        std:: cout << "\n Files for left Have been set successfully";
-}
+ }
 
 
 // destructor
@@ -95,18 +101,19 @@ bool FeatureFinder::setFeatureExtractor( string type )
     else
     {
         ROS_ERROR("Invalid type passed to setFeatureExtractor");
-        return false    }
+        return false;
+    }
 }
 
 
-bool enableVideoMode()
+bool FeatureFinder::enableVideoMode()
 {
     // if we have already enabled video
     if(this->videoEnabled) 
         return false;
 
     // subscribe to the kinect rgb data publisher
-    this->subscriber = node->subscribe("/camera/rgb/image_color", 4, &FeatureFinder::videoCallback, &this);
+    this->subscriber = node->subscribe("/camera/rgb/image_color", 4, &FeatureFinder::videoCallback, this);
 
     // if this is 0 then the above failed
     if(!this->subscriber.getNumPublishers())
@@ -128,7 +135,7 @@ void FeatureFinder::videoCallback (const sensor_msgs::Image::ConstPtr& img)
     bool updateLeft =  this->leftFrame->getVideoMode() && !this->leftFrame->getPause();
 
     // if the right frame is in the video mode and it isn't in paused mode
-    bool updateright = this->rightFrame->getVideoMode() && !this->rightFrame->getPause()
+    bool updateRight = this->rightFrame->getVideoMode() && !this->rightFrame->getPause();
     
     cv_bridge::CvImagePtr cv_ptr;
     try 
@@ -174,16 +181,17 @@ bool FeatureFinder::detectAndDescribeFeatures(int leftright)
   {
     // Detect keypoints in both images.
     //SiftFeatureDetector detector(NP);
-    detector->detect(leftFrame->getImage, leftFrame->getKeyPoints());
+    detector->detect(leftFrame->getImage(), leftFrame->getKeyPoints());
 
     //SiftDescriptorExtractor extractor;
     extractor->compute(leftFrame->getImage(), leftFrame->getKeyPoints(), leftFrame->getDescriptor());
+  }
 
   else if(leftright == this->RIGHT_IMG)
   {
     // Detect keypoints in both images.
     //SiftFeatureDetector detector(NP);
-    detector->detect(rightFrame->getImage, rightFrame->getKeyPoints());
+    detector->detect(rightFrame->getImage(), rightFrame->getKeyPoints());
 
     //SiftDescriptorExtractor extractor;
     extractor->compute(rightFrame->getImage(), rightFrame->getKeyPoints(), leftFrame->getDescriptor());
@@ -197,7 +205,7 @@ bool FeatureFinder::computeMatches()
 {
     matcher.match(leftFrame->getDescriptor(), rightFrame->getDescriptor(), this->matches);
 
-    if(!this->matches->size())
+    if(!this->matches.size())
         ROS_ERROR("could not compute any matches");
 
     drawMatches(leftFrame->getImage(), leftFrame->getKeyPoints(), leftFrame->getImage(), leftFrame->getKeyPoints(), this->matches, this->img_matches);
@@ -238,7 +246,7 @@ bool FeatureFinder::changeImage(int leftright)
         return false; // invalid parameter
 
     this->computeMatches();
-    this->showcurrentFrames();
+    this->showCurrentFrames();
 }
 
 

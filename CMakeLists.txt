@@ -8,6 +8,7 @@ find_package( Boost REQUIRED )
 FIND_PACKAGE(Qt4 REQUIRED)
 INCLUDE(${QT_USE_FILE})
 ADD_DEFINITIONS(${QT_DEFINITIONS})
+add_definitions(-std=c++0x)
 
 SET(CVFeatureFinder_SOURCES Controller/main.cpp Model/FeatureFinder.cpp Model/ImageHelper.cpp)
 #SET(test_FORMS mainwindow.ui)
