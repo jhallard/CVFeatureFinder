@@ -8,6 +8,9 @@ FeatureFinder::FeatureFinder()
     leftFrame = new ImageHelper("../pics/defaultListfile.txt");
     rightFrame = new ImageHelper("../pics/defaultListfile.txt");
 
+    this->detector = nullptr;
+    this->extractor = nullptr;
+
     // create the window for our program
     cv::namedWindow(WINDOW_NAME);
 
@@ -46,6 +49,34 @@ FeatureFinder::~FeatureFinder()
 }
 
 
+bool FeatureFinder::setFeatureDetector( string type )
+{
+    if(type == "SURF" || type == "surf" || type == "Surf")
+    {
+        this->detector = new cv::SurfFeatureDetector(3000, 6, 2, true, true);
+    }
+    else if(type == "SIFT" || type == "Sift" || type == "sift")
+    {
+        this->detector = new cv::SiftFeatureDetector(50);
+    }
+    else if(type == "ORB" || type == "Orb" || type == "orb")
+    {
+        this->detector = new cv::OrbFeatureDetector(50);
+    }
+    else if(type == "MSER" || type == "Mser" || type == "mser")
+    {
+        this->detector = new cv::MserFeatureDetector();
+    }
+    else
+    {
+        ROS_ERROR("Invalid type passed to setFeatureDetector");
+        return false;
+    }
+
+    return true;
+}
+
+
 bool enableVideoMode()
 {
     // if we have already enabled video
@@ -57,7 +88,10 @@ bool enableVideoMode()
 
     // if this is 0 then the above failed
     if(!this->subscriber.getNumPublishers())
+    {
+        ROS_ERROR("Could not subscribe to video feed : ERROR");
         return false;
+    }
 
     this->videoEnabled = true;
 
@@ -137,6 +171,32 @@ bool FeatureFinder::detectAndDescribeFeatures(int leftright)
   }
 
   return true;
+}
+
+
+bool FeatureFinder::computeMatches()
+{
+    matcher.match(leftFrame->getDescriptor(), rightFrame->getDescriptor(), this->matches);
+
+    if(!this->matches->size())
+        ROS_ERROR("could not compute any matches");
+
+    drawMatches(leftFrame->getImage(), leftFrame->getKeyPoints(), leftFrame->getImage(), leftFrame->getKeyPoints(), this->matches, this->img_matches);
+
+    return true;
+
+}
+
+// show the currently stored images in the left/right ImageHelper objects to the window
+bool FeatureFinder::showCurrentFrames()
+{
+    if(!this->img_matches.empty())
+    {
+        cv::imshow(this->WINDOW_NAME, this->img_matches);
+        return true;
+    }
+    else
+        return false;
 }
 
 

@@ -36,13 +36,15 @@ private:
     ImageHelper * leftFrame;   // a helper class that contains an image, it's keypoints, and it's descriptors. We have one for the left frame
     ImageHelper * rightFrame;  // and one for the right frame
 
-    Mat img_matches;           // the final image that shows all the matches, we write this to the screen
-
-    // Feature Finder, Descriptor, and Matcher
+    // Feature detector and extractor
     cv::Ptr<cv::FeatureDetector> detector;
     cv::Ptr<cv::DescriptorExtractor> extractor;
+
+    // feature matcher between the two frames
     cv::FlannBasedMatcher matcher;
     vector<DMatch> matches;
+
+    Mat img_matches;           // the final image that shows all the matches, we write this to the screen
 
     // ROS related variable
     ros::NodeHandle * node;          // our ROS node to recieve published video data
@@ -56,7 +58,7 @@ private:
     //----===========================----//
 
     // changes the type of feature detector we are using (SIFT, SURF, ORB, MSER, etc.)
-    bool changeFeatureDetector( string type );
+    bool setFeatureDetector( string type );
 
     // detects and computes descriptors for either the left or right image/video feed
     bool detectAndDescribeFeatures(int leftright); 
