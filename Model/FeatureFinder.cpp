@@ -10,6 +10,15 @@ FeatureFinder::FeatureFinder()
 
     // create the window for our program
     cv::namedWindow(WINDOW_NAME);
+
+    // compute the features and descriptors of our default images
+    detectAndDescribeFeatures(this->LEFT_IMG);
+    detectAndDescribeFeatures(this->RIGHT_IMG);
+
+    // show the matches between the default images
+    showCurrentFrames();
+
+
 }
 
 // listfile is the path to .txt file containing the paths to the images that the user wants the left/right frames to cycle through
@@ -106,7 +115,7 @@ void FeatureFinder::videoCallback (const sensor_msgs::Image::ConstPtr& img)
 }
 
 
-bool FeatureFinder::detectAndDescribeFeatures(int leftright);
+bool FeatureFinder::detectAndDescribeFeatures(int leftright)
 {
   if(leftright == this->LEFT_IMG)
   {
@@ -130,6 +139,28 @@ bool FeatureFinder::detectAndDescribeFeatures(int leftright);
   return true;
 }
 
+
+
+bool FeatureFinder::changeImage(int leftright)
+{
+    if(leftright == this->LEFT_IMG)
+    {
+        leftFrame->setNextImage();  // shuffle the image in the left frame
+        detectAndDescribeFeatures(this->LEFT_IMG); 
+    }
+
+    else if(leftright == this->RIGHT_IMG)
+    {
+        rightFrame->setNextImage(); // shuffle the image in the right frame
+        detectAndDescribeFeatures(this->RIGHT_IMG);
+    }
+
+    else
+        return false; // invalid parameter
+
+    this->computeMatches();
+    this->showcurrentFrames();
+}
 
 
 

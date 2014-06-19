@@ -12,6 +12,7 @@ private:
     vector<KeyPoint> keyPoints;
     Mat descriptors;
 
+    int currentFileIndex;
     vector<string> filenames; // names of the files that we cycle through for the base images
     string listoffiles;       // a .txt file with a list of the paths to the images we want to use
 
@@ -21,7 +22,10 @@ private:
 public:
     explicit ImageHelper(string listfile, bool videomode = false);
 
+    vector<string> getListOfFiles() const;
     bool setListofFiles(string listfile);
+
+    bool setNextImage();
 
     bool setImage(Mat newimg);
     Mat  getImage() const;

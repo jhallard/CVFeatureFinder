@@ -6,6 +6,7 @@
 #include <string>
 #include <stdio.h>
 #include <iostream>
+#include <fstream>
 
 // ROS includes
 #include "ros/ros.h"
