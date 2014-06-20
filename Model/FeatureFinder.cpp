@@ -43,19 +43,19 @@ FeatureFinder::FeatureFinder(string leftlistfile, string rightlistfile)
     this->setFeatureDetector("SURF");
     this->setFeatureExtractor("SURF");
 
+    // compute the features and descriptors of our default images
+    detectAndDescribeFeatures(this->LEFT_IMG);
+    detectAndDescribeFeatures(this->RIGHT_IMG);
 
     // create the window for our program
     ROS_INFO_STREAM("Opening window\n");
     cv::namedWindow(WINDOW_NAME);
 
-    // compute the features and descriptors of our default images
-    detectAndDescribeFeatures(this->LEFT_IMG);
-    detectAndDescribeFeatures(this->RIGHT_IMG);
-
-    ROS_INFO_STREAM("Features Found\n");
-
     // show the matches between the default images
-    showCurrentFrames();
+    this->computeMatches();
+    this->showCurrentFrames();
+    this->showCurrentFrames();
+
  }
 
 
@@ -133,13 +133,13 @@ bool FeatureFinder::enableVideoMode()
     ROS_INFO_STREAM("Connection Successful");
 
     this->videoEnabled = true;
-
+    this->rightFrame->toggleVideoMode(true);
     return true; // everything worked!
 }
 
 
 // callback for our video feed
-void FeatureFinder::videoCallback (const sensor_msgs::Image::ConstPtr& img)
+void FeatureFinder::videoCallback(const sensor_msgs::Image::ConstPtr& img)
 {
         // if the left frame is in the video mode and it isn't in paused mode
     bool updateLeft =  this->leftFrame->getVideoMode() && !this->leftFrame->getPause();
@@ -199,12 +199,8 @@ bool FeatureFinder::detectAndDescribeFeatures(int leftright)
   {
     detector->detect(leftFrame->getImage(), holdl);
 
-    // if(holdl.size() == 0)
-    //     ROS_INFO_STREAM("keypoints 0\n");
-
     leftFrame->setKeyPoints(holdl);
 
-    //SiftDescriptorExtractor extractor;
     extractor->compute(leftFrame->getImage(), holdl, imgl);
 
     leftFrame->setDescriptor(imgl);
@@ -212,15 +208,10 @@ bool FeatureFinder::detectAndDescribeFeatures(int leftright)
 
   else if(leftright == this->RIGHT_IMG)
   {
-    // Detect keypoints in both images.
-    //SiftFeatureDetector detector(NP);
     detector->detect(rightFrame->getImage(), holdr);
 
-    // if(holdr.size() == 0)
-    //     ROS_INFO_STREAM("keypoints 0\n");
     rightFrame->setKeyPoints(holdr);
 
-    //SiftDescriptorExtractor extractor;
     extractor->compute(rightFrame->getImage(), holdr, imgr);
 
     rightFrame->setDescriptor(imgr);
@@ -249,11 +240,15 @@ bool FeatureFinder::showCurrentFrames()
 {
     if(!this->img_matches.empty())
     {
+        ROS_INFO_STREAM("Drawing Matches");
         cv::imshow(this->WINDOW_NAME, this->img_matches);
         return true;
     }
     else
+    {
+        ROS_INFO_STREAM("Matches image empty!\n");
         return false;
+    }
 }
 
 

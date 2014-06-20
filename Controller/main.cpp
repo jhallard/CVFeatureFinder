@@ -10,8 +10,10 @@ int main(int argc, char ** argv)
     FeatureFinder * finder = new FeatureFinder();
     finder->enableVideoMode();
 
-    ros::spin();
-
+    while(ros::ok())
+    {
+       ros::spinOnce();;
+    }
     //cv::destroyWindow(finder->WINDOW_NAME);
 
     return 0;
