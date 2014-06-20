@@ -1,5 +1,6 @@
 #include "FeatureFinder.h"
 
+
 // default constructor
 FeatureFinder::FeatureFinder() 
 : LEFT_IMG(1), RIGHT_IMG(2), node(new ros::NodeHandle), matcher(new FlannBasedMatcher()), WINDOW_NAME("CVFeatureFinderWindow")
@@ -40,7 +41,7 @@ FeatureFinder::FeatureFinder(string leftlistfile, string rightlistfile)
 
     ROS_INFO_STREAM("Initializing Feature Detector and Extractor\n");
     this->setFeatureDetector("SURF");
-    this->setFeatureExtractor("SIFT");
+    this->setFeatureExtractor("SURF");
 
 
     // create the window for our program
@@ -198,6 +199,9 @@ bool FeatureFinder::detectAndDescribeFeatures(int leftright)
   {
     detector->detect(leftFrame->getImage(), holdl);
 
+    // if(holdl.size() == 0)
+    //     ROS_INFO_STREAM("keypoints 0\n");
+
     leftFrame->setKeyPoints(holdl);
 
     //SiftDescriptorExtractor extractor;
@@ -212,6 +216,8 @@ bool FeatureFinder::detectAndDescribeFeatures(int leftright)
     //SiftFeatureDetector detector(NP);
     detector->detect(rightFrame->getImage(), holdr);
 
+    // if(holdr.size() == 0)
+    //     ROS_INFO_STREAM("keypoints 0\n");
     rightFrame->setKeyPoints(holdr);
 
     //SiftDescriptorExtractor extractor;
@@ -226,12 +232,13 @@ bool FeatureFinder::detectAndDescribeFeatures(int leftright)
 
 bool FeatureFinder::computeMatches()
 {
-    matcher->match(leftFrame->getDescriptor(), rightFrame->getDescriptor(), this->matches);
+    if(!(leftFrame->getDescriptor().empty() || rightFrame->getDescriptor().empty()))
+        matcher->match(leftFrame->getDescriptor(), rightFrame->getDescriptor(), this->matches);
 
     if(!this->matches.size())
         ROS_ERROR("could not compute any matches");
 
-    drawMatches(leftFrame->getImage(), leftFrame->getKeyPoints(), leftFrame->getImage(), leftFrame->getKeyPoints(), this->matches, this->img_matches);
+    drawMatches(leftFrame->getImage(), leftFrame->getKeyPoints(), rightFrame->getImage(), rightFrame->getKeyPoints(), this->matches, this->img_matches);
 
     return true;
 

@@ -21,6 +21,7 @@ bool ImageHelper::setListofFiles(string listfile)
     this->listOfFiles = listfile;
     
     ifstream file(this->listOfFiles.c_str());
+
     if ( !file.is_open() )
         return false;
 

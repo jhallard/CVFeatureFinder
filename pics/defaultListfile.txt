@@ -1,1 +1,1 @@
-default.jpg
+../pics/default.jpg

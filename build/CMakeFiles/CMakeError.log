@@ -1,10 +1,10 @@
 Determining if the function pthread_create exists in the pthreads failed with the following output:
-Change Dir: /home/robotics/Desktop/openCV_Related/CVFeatureFinder/build/CMakeFiles/CMakeTmp
+Change Dir: /home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles/CMakeTmp
 
 Run Build Command:/usr/bin/make "cmTryCompileExec/fast"
 /usr/bin/make -f CMakeFiles/cmTryCompileExec.dir/build.make CMakeFiles/cmTryCompileExec.dir/build
-make[1]: Entering directory `/home/robotics/Desktop/openCV_Related/CVFeatureFinder/build/CMakeFiles/CMakeTmp'
-/usr/bin/cmake -E cmake_progress_report /home/robotics/Desktop/openCV_Related/CVFeatureFinder/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+make[1]: Entering directory `/home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles/CMakeTmp/CMakeFiles 1
 Building C object CMakeFiles/cmTryCompileExec.dir/CheckFunctionExists.c.o
 /usr/bin/gcc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-2.8/Modules/CheckFunctionExists.c
 Linking C executable cmTryCompileExec
@@ -12,27 +12,27 @@ Linking C executable cmTryCompileExec
 /usr/bin/gcc     -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTryCompileExec.dir/CheckFunctionExists.c.o  -o cmTryCompileExec -rdynamic -lpthreads 
 /usr/bin/ld: cannot find -lpthreads
 collect2: ld returned 1 exit status
-make[1]: Leaving directory `/home/robotics/Desktop/openCV_Related/CVFeatureFinder/build/CMakeFiles/CMakeTmp'
 make[1]: *** [cmTryCompileExec] Error 1
+make[1]: Leaving directory `/home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles/CMakeTmp'
 make: *** [cmTryCompileExec/fast] Error 2
 
 
 Determining if the Q_WS_WIN exist failed with the following output:
-Change Dir: /home/robotics/Desktop/openCV_Related/CVFeatureFinder/build/CMakeFiles/CMakeTmp
+Change Dir: /home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles/CMakeTmp
 
 Run Build Command:/usr/bin/make "cmTryCompileExec/fast"
 /usr/bin/make -f CMakeFiles/cmTryCompileExec.dir/build.make CMakeFiles/cmTryCompileExec.dir/build
-make[1]: Entering directory `/home/robotics/Desktop/openCV_Related/CVFeatureFinder/build/CMakeFiles/CMakeTmp'
-/usr/bin/cmake -E cmake_progress_report /home/robotics/Desktop/openCV_Related/CVFeatureFinder/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+make[1]: Entering directory `/home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles/CMakeTmp/CMakeFiles 1
 Building CXX object CMakeFiles/cmTryCompileExec.dir/CheckSymbolExists.cxx.o
-/usr/bin/c++    -I/usr/include/qt4    -o CMakeFiles/cmTryCompileExec.dir/CheckSymbolExists.cxx.o -c /home/robotics/Desktop/openCV_Related/CVFeatureFinder/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
-/home/robotics/Desktop/openCV_Related/CVFeatureFinder/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx: In function ‘int main()’:
-/home/robotics/Desktop/openCV_Related/CVFeatureFinder/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:8:25: error: ‘Q_WS_WIN’ was not declared in this scope
+/usr/bin/c++    -I/usr/include/qt4    -o CMakeFiles/cmTryCompileExec.dir/CheckSymbolExists.cxx.o -c /home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+/home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx: In function ‘int main()’:
+/home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:8:25: error: ‘Q_WS_WIN’ was not declared in this scope
 make[1]: *** [CMakeFiles/cmTryCompileExec.dir/CheckSymbolExists.cxx.o] Error 1
-make[1]: Leaving directory `/home/robotics/Desktop/openCV_Related/CVFeatureFinder/build/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory `/home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles/CMakeTmp'
 make: *** [cmTryCompileExec/fast] Error 2
 
-File /home/robotics/Desktop/openCV_Related/CVFeatureFinder/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+File /home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
 /* */
 #include <QtCore/qglobal.h>
 
@@ -46,21 +46,21 @@ int main()
 }
 
 Determining if the Q_WS_QWS exist failed with the following output:
-Change Dir: /home/robotics/Desktop/openCV_Related/CVFeatureFinder/build/CMakeFiles/CMakeTmp
+Change Dir: /home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles/CMakeTmp
 
 Run Build Command:/usr/bin/make "cmTryCompileExec/fast"
 /usr/bin/make -f CMakeFiles/cmTryCompileExec.dir/build.make CMakeFiles/cmTryCompileExec.dir/build
-make[1]: Entering directory `/home/robotics/Desktop/openCV_Related/CVFeatureFinder/build/CMakeFiles/CMakeTmp'
-/usr/bin/cmake -E cmake_progress_report /home/robotics/Desktop/openCV_Related/CVFeatureFinder/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+make[1]: Entering directory `/home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles/CMakeTmp/CMakeFiles 1
 Building CXX object CMakeFiles/cmTryCompileExec.dir/CheckSymbolExists.cxx.o
-/usr/bin/c++    -I/usr/include/qt4    -o CMakeFiles/cmTryCompileExec.dir/CheckSymbolExists.cxx.o -c /home/robotics/Desktop/openCV_Related/CVFeatureFinder/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
-/home/robotics/Desktop/openCV_Related/CVFeatureFinder/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx: In function ‘int main()’:
-/home/robotics/Desktop/openCV_Related/CVFeatureFinder/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:8:25: error: ‘Q_WS_QWS’ was not declared in this scope
+/usr/bin/c++    -I/usr/include/qt4    -o CMakeFiles/cmTryCompileExec.dir/CheckSymbolExists.cxx.o -c /home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+/home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx: In function ‘int main()’:
+/home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:8:25: error: ‘Q_WS_QWS’ was not declared in this scope
 make[1]: *** [CMakeFiles/cmTryCompileExec.dir/CheckSymbolExists.cxx.o] Error 1
-make[1]: Leaving directory `/home/robotics/Desktop/openCV_Related/CVFeatureFinder/build/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory `/home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles/CMakeTmp'
 make: *** [cmTryCompileExec/fast] Error 2
 
-File /home/robotics/Desktop/openCV_Related/CVFeatureFinder/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+File /home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
 /* */
 #include <QtCore/qglobal.h>
 
@@ -74,21 +74,21 @@ int main()
 }
 
 Determining if the Q_WS_MAC exist failed with the following output:
-Change Dir: /home/robotics/Desktop/openCV_Related/CVFeatureFinder/build/CMakeFiles/CMakeTmp
+Change Dir: /home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles/CMakeTmp
 
 Run Build Command:/usr/bin/make "cmTryCompileExec/fast"
 /usr/bin/make -f CMakeFiles/cmTryCompileExec.dir/build.make CMakeFiles/cmTryCompileExec.dir/build
-make[1]: Entering directory `/home/robotics/Desktop/openCV_Related/CVFeatureFinder/build/CMakeFiles/CMakeTmp'
-/usr/bin/cmake -E cmake_progress_report /home/robotics/Desktop/openCV_Related/CVFeatureFinder/build/CMakeFiles/CMakeTmp/CMakeFiles 1
+make[1]: Entering directory `/home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles/CMakeTmp'
+/usr/bin/cmake -E cmake_progress_report /home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles/CMakeTmp/CMakeFiles 1
 Building CXX object CMakeFiles/cmTryCompileExec.dir/CheckSymbolExists.cxx.o
-/usr/bin/c++    -I/usr/include/qt4    -o CMakeFiles/cmTryCompileExec.dir/CheckSymbolExists.cxx.o -c /home/robotics/Desktop/openCV_Related/CVFeatureFinder/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
-/home/robotics/Desktop/openCV_Related/CVFeatureFinder/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx: In function ‘int main()’:
-/home/robotics/Desktop/openCV_Related/CVFeatureFinder/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:8:25: error: ‘Q_WS_MAC’ was not declared in this scope
+/usr/bin/c++    -I/usr/include/qt4    -o CMakeFiles/cmTryCompileExec.dir/CheckSymbolExists.cxx.o -c /home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+/home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx: In function ‘int main()’:
+/home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:8:25: error: ‘Q_WS_MAC’ was not declared in this scope
 make[1]: *** [CMakeFiles/cmTryCompileExec.dir/CheckSymbolExists.cxx.o] Error 1
-make[1]: Leaving directory `/home/robotics/Desktop/openCV_Related/CVFeatureFinder/build/CMakeFiles/CMakeTmp'
+make[1]: Leaving directory `/home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles/CMakeTmp'
 make: *** [cmTryCompileExec/fast] Error 2
 
-File /home/robotics/Desktop/openCV_Related/CVFeatureFinder/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+File /home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
 /* */
 #include <QtCore/qglobal.h>
 

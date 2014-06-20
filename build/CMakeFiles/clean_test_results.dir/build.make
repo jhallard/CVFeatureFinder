@@ -32,10 +32,10 @@ CMAKE_COMMAND = /usr/bin/cmake
 RM = /usr/bin/cmake -E remove -f
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/robotics/Desktop/openCV_Related/CVFeatureFinder
+CMAKE_SOURCE_DIR = /home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/robotics/Desktop/openCV_Related/CVFeatureFinder/build
+CMAKE_BINARY_DIR = /home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build
 
 # Utility rule file for clean_test_results.
 
@@ -43,7 +43,7 @@ CMAKE_BINARY_DIR = /home/robotics/Desktop/openCV_Related/CVFeatureFinder/build
 include CMakeFiles/clean_test_results.dir/progress.make
 
 CMakeFiles/clean_test_results:
-	/usr/bin/cmake -E remove_directory /home/robotics/Desktop/openCV_Related/CVFeatureFinder/build/test_results
+	/usr/bin/cmake -E remove_directory /home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/test_results
 
 clean_test_results: CMakeFiles/clean_test_results
 clean_test_results: CMakeFiles/clean_test_results.dir/build.make
@@ -58,6 +58,6 @@ CMakeFiles/clean_test_results.dir/clean:
 .PHONY : CMakeFiles/clean_test_results.dir/clean
 
 CMakeFiles/clean_test_results.dir/depend:
-	cd /home/robotics/Desktop/openCV_Related/CVFeatureFinder/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/robotics/Desktop/openCV_Related/CVFeatureFinder /home/robotics/Desktop/openCV_Related/CVFeatureFinder /home/robotics/Desktop/openCV_Related/CVFeatureFinder/build /home/robotics/Desktop/openCV_Related/CVFeatureFinder/build /home/robotics/Desktop/openCV_Related/CVFeatureFinder/build/CMakeFiles/clean_test_results.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder /home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder /home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build /home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build /home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles/clean_test_results.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/clean_test_results.dir/depend
 
