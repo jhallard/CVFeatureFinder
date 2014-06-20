@@ -32,7 +32,9 @@ bool ImageHelper::setListofFiles(string listfile)
     }
     file.close();
 
-    this->img = cv::imread(this->listOfFiles[this->currentFileIndex])
+    this->img = cv::imread(this->filenames[this->currentFileIndex]);
+
+    return true;
 }
 
 bool ImageHelper::setNextImage()
@@ -43,11 +45,11 @@ bool ImageHelper::setNextImage()
 
     // if we aren't in video mode, change the current image to the new one
     if(!this->videoMode)
-        this->img = cv::imread(this->listOfFiles[this->currentFileIndex])
+        this->img = cv::imread(this->filenames[this->currentFileIndex]);
 
     if(this->img.empty())
     {
-        std::cout << "ERROR Reading Images! Abort";
+        ROS_INFO_STREAM("ERROR Reading Images! Abort\n");
         return false;
     }
 
@@ -82,9 +84,10 @@ bool ImageHelper::setKeyPoints(vector<KeyPoint> kps)
     return true;
 }
 
-vector<KeyPoint> & ImageHelper::getKeyPoints() const
+vector<KeyPoint> ImageHelper::getKeyPoints() const
 {
-    return this->keyPoints;
+    //vector<KeyPoint> & hold = this->keyPoints;
+    return keyPoints;
 }
 
 
@@ -97,12 +100,12 @@ bool ImageHelper::setDescriptor(Mat newimg)
     }
     else
     {
-        std::cout << "Error setting descriptor";
+        ROS_INFO_STREAM("Error Setting Descriptors, empty\n");
         return false;
     }
 }
 
-Mat & ImageHelper::getDescriptor() const
+Mat ImageHelper::getDescriptor() const
 {
     return this->descriptors;
 }

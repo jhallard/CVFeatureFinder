@@ -11,6 +11,16 @@
 #include "opencv2/core/core.hpp"
 #include "opencv2/features2d/features2d.hpp"
 
+#include <fstream>
+#include <vector>
+#include <string>
+#include <iostream>
+
+// ROS includes
+#include "ros/ros.h"
+#include <sensor_msgs/image_encodings.h>
+#include "sensor_msgs/Image.h"
+
 using namespace cv;
 using namespace std;
 
@@ -38,13 +48,13 @@ public:
     bool setNextImage();
 
     bool setImage(Mat newimg);
-    Mat & getImage() const;
+    Mat  getImage() const;
 
     bool setKeyPoints(vector<KeyPoint> kps);
-    vector<KeyPoint> & getKeyPoints() const;
+    vector<KeyPoint>  getKeyPoints() const;
 
     bool setDescriptor(Mat img);
-    Mat & getDescriptor() const;
+    Mat getDescriptor() const;
 
     bool toggleVideoMode(bool onoff); // toggle on and off video mode
     bool getVideoMode() const;

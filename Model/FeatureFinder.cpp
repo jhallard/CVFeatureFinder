@@ -2,14 +2,14 @@
 
 // default constructor
 FeatureFinder::FeatureFinder() 
-: LEFT_IMG(1), RIGHT_IMG(2), node(new ros::NodeHandle), WINDOW_NAME("CVFeatureFinderWindow")
+: LEFT_IMG(1), RIGHT_IMG(2), node(new ros::NodeHandle), matcher(new FlannBasedMatcher()), WINDOW_NAME("CVFeatureFinderWindow")
 {
     this->init();
 }
 
 // listfile is the path to .txt file containing the paths to the images that the user wants the left/right frames to cycle through
 FeatureFinder::FeatureFinder(string leftlistfile, string rightlistfile)
-: LEFT_IMG(1), RIGHT_IMG(2), node(new ros::NodeHandle), WINDOW_NAME("CVFeatureFinderWindow")
+: LEFT_IMG(1), RIGHT_IMG(2), node(new ros::NodeHandle), matcher(new FlannBasedMatcher()), WINDOW_NAME("CVFeatureFinderWindow")
 {
     this->init();
 
@@ -31,19 +31,27 @@ FeatureFinder::FeatureFinder(string leftlistfile, string rightlistfile)
     leftFrame = new ImageHelper("../pics/defaultListfile.txt");
     rightFrame = new ImageHelper("../pics/defaultListfile.txt");
 
+    leftFrame->toggleVideoMode(true);
+
     this->detector = nullptr;
     this->extractor = nullptr;
 
+    cv::initModule_nonfree();
+
+    ROS_INFO_STREAM("Initializing Feature Detector and Extractor\n");
     this->setFeatureDetector("SURF");
     this->setFeatureExtractor("SIFT");
 
 
     // create the window for our program
+    ROS_INFO_STREAM("Opening window\n");
     cv::namedWindow(WINDOW_NAME);
 
     // compute the features and descriptors of our default images
     detectAndDescribeFeatures(this->LEFT_IMG);
     detectAndDescribeFeatures(this->RIGHT_IMG);
+
+    ROS_INFO_STREAM("Features Found\n");
 
     // show the matches between the default images
     showCurrentFrames();
@@ -115,12 +123,13 @@ bool FeatureFinder::enableVideoMode()
     // subscribe to the kinect rgb data publisher
     this->subscriber = node->subscribe("/camera/rgb/image_color", 4, &FeatureFinder::videoCallback, this);
 
-    // if this is 0 then the above failed
-    if(!this->subscriber.getNumPublishers())
+    ROS_INFO_STREAM("Connecting To Camera.. may take a moment..");
+    while(!this->subscriber.getNumPublishers())
     {
-        ROS_ERROR("Could not subscribe to video feed : ERROR");
-        return false;
+        // wait for the feed to connect
     }
+
+    ROS_INFO_STREAM("Connection Successful");
 
     this->videoEnabled = true;
 
@@ -177,24 +186,38 @@ void FeatureFinder::videoCallback (const sensor_msgs::Image::ConstPtr& img)
 
 bool FeatureFinder::detectAndDescribeFeatures(int leftright)
 {
+
+    vector<KeyPoint> holdl = leftFrame->getKeyPoints();
+
+    Mat imgl = leftFrame->getDescriptor();
+
+    vector<KeyPoint> holdr = rightFrame->getKeyPoints();
+    Mat imgr = rightFrame->getDescriptor();
+
   if(leftright == this->LEFT_IMG)
   {
-    // Detect keypoints in both images.
-    //SiftFeatureDetector detector(NP);
-    detector->detect(leftFrame->getImage(), leftFrame->getKeyPoints());
+    detector->detect(leftFrame->getImage(), holdl);
+
+    leftFrame->setKeyPoints(holdl);
 
     //SiftDescriptorExtractor extractor;
-    extractor->compute(leftFrame->getImage(), leftFrame->getKeyPoints(), leftFrame->getDescriptor());
+    extractor->compute(leftFrame->getImage(), holdl, imgl);
+
+    leftFrame->setDescriptor(imgl);
   }
 
   else if(leftright == this->RIGHT_IMG)
   {
     // Detect keypoints in both images.
     //SiftFeatureDetector detector(NP);
-    detector->detect(rightFrame->getImage(), rightFrame->getKeyPoints());
+    detector->detect(rightFrame->getImage(), holdr);
+
+    rightFrame->setKeyPoints(holdr);
 
     //SiftDescriptorExtractor extractor;
-    extractor->compute(rightFrame->getImage(), rightFrame->getKeyPoints(), leftFrame->getDescriptor());
+    extractor->compute(rightFrame->getImage(), holdr, imgr);
+
+    rightFrame->setDescriptor(imgr);
   }
 
   return true;
@@ -203,7 +226,7 @@ bool FeatureFinder::detectAndDescribeFeatures(int leftright)
 
 bool FeatureFinder::computeMatches()
 {
-    matcher.match(leftFrame->getDescriptor(), rightFrame->getDescriptor(), this->matches);
+    matcher->match(leftFrame->getDescriptor(), rightFrame->getDescriptor(), this->matches);
 
     if(!this->matches.size())
         ROS_ERROR("could not compute any matches");

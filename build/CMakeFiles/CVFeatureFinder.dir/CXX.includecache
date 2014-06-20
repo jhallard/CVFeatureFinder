@@ -6,8 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/robotics/Desktop/openCV_Related/CVFeatureFinder/Controller/main.cpp
-
 /home/robotics/Desktop/openCV_Related/CVFeatureFinder/Model/FeatureFinder.cpp
 FeatureFinder.h
 /home/robotics/Desktop/openCV_Related/CVFeatureFinder/Model/FeatureFinder.h
@@ -48,9 +46,37 @@ opencv2/core/core.hpp
 opencv2/features2d/features2d.hpp
 /home/robotics/Desktop/openCV_Related/CVFeatureFinder/Model/opencv2/features2d/features2d.hpp
 
-/home/robotics/Desktop/openCV_Related/CVFeatureFinder/Model/ImageHelper.cpp
-ImageHelper.h
 /home/robotics/Desktop/openCV_Related/CVFeatureFinder/Model/ImageHelper.h
+opencv2/opencv.hpp
+-
+cv_bridge/cv_bridge.h
+-
+image_transport/image_transport.h
+-
+opencv2/imgproc/imgproc.hpp
+-
+opencv2/highgui/highgui.hpp
+-
+opencv2/nonfree/nonfree.hpp
+-
+opencv2/core/core.hpp
+/home/robotics/Desktop/openCV_Related/CVFeatureFinder/Model/opencv2/core/core.hpp
+opencv2/features2d/features2d.hpp
+/home/robotics/Desktop/openCV_Related/CVFeatureFinder/Model/opencv2/features2d/features2d.hpp
+fstream
+-
+vector
+-
+string
+-
+iostream
+-
+ros/ros.h
+/home/robotics/Desktop/openCV_Related/CVFeatureFinder/Model/ros/ros.h
+sensor_msgs/image_encodings.h
+-
+sensor_msgs/Image.h
+/home/robotics/Desktop/openCV_Related/CVFeatureFinder/Model/sensor_msgs/Image.h
 
 /opt/ros/hydro/include/XmlRpcDecl.h
 ros/macros.h

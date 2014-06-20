@@ -44,7 +44,7 @@ private:
     cv::Ptr<cv::DescriptorExtractor> extractor;
 
     // feature matcher between the two frames
-    cv::FlannBasedMatcher matcher;
+    cv::FlannBasedMatcher * matcher;
     vector<DMatch> matches;
 
     Mat img_matches;           // the final image that shows all the matches, we write this to the screen
