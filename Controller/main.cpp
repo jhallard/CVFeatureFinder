@@ -11,13 +11,13 @@ int main(int argc, char ** argv)
     if(argc == 2)
     {
         if(argv[1][0] == 'l')
-            finder->getLeft()->toggleVideoMode(true);
+            finder->toggleVideoMode(true, finder->LEFT_IMG);
         else if(argv[1][0] == 'r')
-            finder->getRight()->toggleVideoMode(true);
+            finder->toggleVideoMode(true, finder->RIGHT_IMG);
         else
         {
-            finder->getLeft()->toggleVideoMode(true);
-            finder->getRight()->toggleVideoMode(true);
+            finder->toggleVideoMode(true,finder->LEFT_IMG );
+            finder->toggleVideoMode(true,finder->RIGHT_IMG);
         }
     }
 

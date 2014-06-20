@@ -1,9 +1,7 @@
 #include "ImageHelper.h"
 
-ImageHelper::ImageHelper(string listfile, bool videomode)
+ImageHelper::ImageHelper(string listfile)
 {
-    this->videoMode = videomode;
-    this->pause = false;
     this->currentFileIndex = 0;
     this->listOfFiles = listfile;
     this->setListofFiles(listfile);
@@ -47,13 +45,12 @@ bool ImageHelper::setNextImage()
     if(this->currentFileIndex == this->listOfFiles.size())
         this->currentFileIndex = 0;
 
-    // if we aren't in video mode, change the current image to the new one
-    if(!this->videoMode)
-        this->img = cv::imread(this->filenames[this->currentFileIndex]);
+
+    this->img = cv::imread(this->filenames[this->currentFileIndex]);
 
     if(this->img.empty())
     {
-        ROS_INFO_STREAM("ERROR Reading Images! Abort\n");
+        ROS_INFO_STREAM("ERROR Reading Images! in ImageHelper::setNextImage()\n");
         return false;
     }
 
@@ -104,7 +101,7 @@ bool ImageHelper::setDescriptor(Mat newimg)
     }
     else
     {
-        ROS_INFO_STREAM("Error Setting Descriptors, empty\n");
+        ROS_ERROR("ImageHelper : Error Setting Descriptors, empty\n");
         return false;
     }
 }
@@ -112,26 +109,6 @@ bool ImageHelper::setDescriptor(Mat newimg)
 Mat ImageHelper::getDescriptor() const
 {
     return this->descriptors;
-}
-
-
-bool ImageHelper::toggleVideoMode(bool onoff)
-{
-    this->videoMode = onoff;
-}
-bool ImageHelper::getVideoMode() const
-{
-    return this->videoMode;
-}
-
-bool ImageHelper::togglePause()
-{
-    this->pause =! pause;
-    return true;
-}
-bool ImageHelper::getPause() const
-{
-    return this->pause;
 }
 
 

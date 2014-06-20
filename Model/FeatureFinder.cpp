@@ -3,14 +3,16 @@
 
 // default constructor
 FeatureFinder::FeatureFinder(const string wind) 
-: LEFT_IMG(1), RIGHT_IMG(2), node(new ros::NodeHandle), matcher(new FlannBasedMatcher()), WINDOW_NAME(wind)
+: LEFT_IMG(1), RIGHT_IMG(2),
+ node(new ros::NodeHandle), matcher(new FlannBasedMatcher()), WINDOW_NAME(wind)
 {
     this->init();
 }
 
 // listfile is the path to .txt file containing the paths to the images that the user wants the left/right frames to cycle through
 FeatureFinder::FeatureFinder(const string wind, string leftlistfile, string rightlistfile)
-: LEFT_IMG(1), RIGHT_IMG(2), node(new ros::NodeHandle), matcher(new FlannBasedMatcher()), WINDOW_NAME(wind)
+: LEFT_IMG(1), RIGHT_IMG(2),
+ node(new ros::NodeHandle), matcher(new FlannBasedMatcher()), WINDOW_NAME(wind)
 {
     this->init();
 
@@ -29,8 +31,13 @@ FeatureFinder::FeatureFinder(const string wind, string leftlistfile, string righ
  void FeatureFinder::init()
  {
     this->videoEnabled = false;
-    leftFrame = new ImageHelper("../pics/defaultListfile.txt", false);
-    rightFrame = new ImageHelper("../pics/defaultListfile.txt", false);
+    this->videoLeft = false;
+    this->videoRight = false;
+    this->pauseLeft = false;
+    this->pauseRight = false;
+
+    leftFrame = new ImageHelper("../pics/defaultListfile.txt");
+    rightFrame = new ImageHelper("../pics/defaultListfile.txt");
 
     this->detector = nullptr;
     this->extractor = nullptr;
@@ -131,7 +138,7 @@ bool FeatureFinder::enableVideoMode()
         // wait for the feed to connect
     }
 
-    ROS_INFO_STREAM("Connection Successful");
+    ROS_INFO_STREAM("Connection Successful, Video Data Feed Running");
 
     this->videoEnabled = true;
     return true; // everything worked!
@@ -142,10 +149,10 @@ bool FeatureFinder::enableVideoMode()
 void FeatureFinder::videoCallback(const sensor_msgs::Image::ConstPtr& img)
 {
         // if the left frame is in the video mode and it isn't in paused mode
-    bool updateLeft =  this->leftFrame->getVideoMode() && !this->leftFrame->getPause();
+    bool updateLeft =  this->getVideoMode(LEFT_IMG) && !this->getPause(LEFT_IMG);
 
     // if the right frame is in the video mode and it isn't in paused mode
-    bool updateRight = this->rightFrame->getVideoMode() && !this->rightFrame->getPause();
+    bool updateRight = this->getVideoMode(RIGHT_IMG) && !this->getPause(RIGHT_IMG);
     
     cv_bridge::CvImagePtr cv_ptr;
     try 
@@ -295,7 +302,7 @@ bool FeatureFinder::changeImage(int leftright)
 
 
 
-// =================== //
+// =================== //*
 // === GET AND SET === //
 // =================== // 
 ImageHelper * FeatureFinder::getLeft() const
@@ -308,3 +315,34 @@ ImageHelper * FeatureFinder::getRight() const
     return this->rightFrame;
 }
 
+bool FeatureFinder::toggleVideoMode(bool onoff, int leftright)
+{
+    if(leftright == this->LEFT_IMG)
+        videoLeft = onoff;
+    else if(leftright == this->RIGHT_IMG)
+        videoRight = onoff;
+    else
+        return false;
+
+    return true;
+}
+bool FeatureFinder::getVideoMode(int leftright) const
+{
+    return ((leftright == this->LEFT_IMG)? videoLeft : videoRight);
+}
+
+bool FeatureFinder::togglePause(int leftright)
+{
+    if(leftright == this->LEFT_IMG)
+        pauseLeft = !pauseLeft;
+    else if(leftright == this->RIGHT_IMG)
+        pauseRight = !pauseRight;
+    else
+        return false;
+
+    return true;
+}
+bool FeatureFinder::getPause(int leftright) const
+{
+    return ((leftright == this->LEFT_IMG)? pauseLeft : pauseRight);
+}

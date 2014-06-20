@@ -83,6 +83,8 @@ private:
     ros::NodeHandle * node;          // our ROS node to recieve published video data
     ros::Subscriber subscriber;    // subscribes to the kinect data feed
 
+    bool pauseLeft, pauseRight, videoLeft, videoRight;
+
 
     //----===========================----//
     // ---  PRIVATE HELPER FUNCTIONS --- //
@@ -134,6 +136,12 @@ public:
 
     bool enableVideoMode(); // this only needs to be called once to connect to the webcam/kinect camera. Once that is done then the user can toggle the videomode of 
                             // the left of right frame by calling the ImageHelper::togglevideoMode() function.
+
+    bool toggleVideoMode(bool onoff, int leftright); // toggle on and off video mode
+    bool getVideoMode(int leftright) const;
+
+    bool togglePause(int leftright);               // toggle the pause on the video feed
+    bool getPause(int leftright) const;
 
 
 

@@ -40,7 +40,7 @@ private:
     bool pause;     // True is the user wants to pause the incoming video feed
 
 public:
-    explicit ImageHelper(string listfile, bool videomode = false);
+    explicit ImageHelper(string listfile);
 
     vector<string> getListOfFiles() const;
     bool setListofFiles(string listfile);
@@ -56,11 +56,6 @@ public:
     bool setDescriptor(Mat img);
     Mat getDescriptor() const;
 
-    bool toggleVideoMode(bool onoff); // toggle on and off video mode
-    bool getVideoMode() const;
-
-    bool togglePause();               // toggle the pause on the video feed
-    bool getPause() const;
 };
 
 #endif
