@@ -85,7 +85,7 @@ bool ImageHelper::setKeyPoints(vector<KeyPoint> kps)
     return true;
 }
 
-vector<KeyPoint> ImageHelper::getKeyPoints() const
+vector<KeyPoint> ImageHelper::getKeyPoints()
 {
     //vector<KeyPoint> & hold = this->keyPoints;
     return keyPoints;

@@ -51,7 +51,7 @@ public:
     Mat  getImage() const;
 
     bool setKeyPoints(vector<KeyPoint> kps);
-    vector<KeyPoint>  getKeyPoints() const;
+    vector<KeyPoint>  getKeyPoints();
 
     bool setDescriptor(Mat img);
     Mat getDescriptor() const;

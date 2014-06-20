@@ -31,6 +31,7 @@ using namespace std;
 
 class FeatureFinder
 {
+
 private:
     //========================//
     // ---  MEMBER FIELDS --- //
@@ -90,8 +91,8 @@ public:
     //----===================----//
 
     // Constructors
-    FeatureFinder();
-    explicit FeatureFinder(string lfile, string rfile);
+    FeatureFinder(const string);
+    explicit FeatureFinder(const string, string lfile, string rfile);
 
     // Destructor
     ~FeatureFinder();

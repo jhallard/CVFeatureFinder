@@ -2,15 +2,15 @@
 
 
 // default constructor
-FeatureFinder::FeatureFinder() 
-: LEFT_IMG(1), RIGHT_IMG(2), node(new ros::NodeHandle), matcher(new FlannBasedMatcher()), WINDOW_NAME("CVFeatureFinderWindow")
+FeatureFinder::FeatureFinder(const string wind) 
+: LEFT_IMG(1), RIGHT_IMG(2), node(new ros::NodeHandle), matcher(new FlannBasedMatcher()), WINDOW_NAME(wind)
 {
     this->init();
 }
 
 // listfile is the path to .txt file containing the paths to the images that the user wants the left/right frames to cycle through
-FeatureFinder::FeatureFinder(string leftlistfile, string rightlistfile)
-: LEFT_IMG(1), RIGHT_IMG(2), node(new ros::NodeHandle), matcher(new FlannBasedMatcher()), WINDOW_NAME("CVFeatureFinderWindow")
+FeatureFinder::FeatureFinder(const string wind, string leftlistfile, string rightlistfile)
+: LEFT_IMG(1), RIGHT_IMG(2), node(new ros::NodeHandle), matcher(new FlannBasedMatcher()), WINDOW_NAME(wind)
 {
     this->init();
 
@@ -29,10 +29,8 @@ FeatureFinder::FeatureFinder(string leftlistfile, string rightlistfile)
  void FeatureFinder::init()
  {
     this->videoEnabled = false;
-    leftFrame = new ImageHelper("../pics/defaultListfile.txt");
-    rightFrame = new ImageHelper("../pics/defaultListfile.txt");
-
-    leftFrame->toggleVideoMode(true);
+    leftFrame = new ImageHelper("../pics/defaultListfile.txt", false);
+    rightFrame = new ImageHelper("../pics/defaultListfile.txt", false);
 
     this->detector = nullptr;
     this->extractor = nullptr;
@@ -48,14 +46,14 @@ FeatureFinder::FeatureFinder(string leftlistfile, string rightlistfile)
     detectAndDescribeFeatures(this->RIGHT_IMG);
 
     // create the window for our program
-    ROS_INFO_STREAM("Opening window\n");
-    cv::namedWindow(WINDOW_NAME);
+    // ROS_INFO_STREAM("Opening window\n");
+    // cv::namedWindow(WINDOW_NAME);
 
     // show the matches between the default images
     this->computeMatches();
     this->showCurrentFrames();
-    this->showCurrentFrames();
 
+    leftFrame->toggleVideoMode(true);
  }
 
 
@@ -133,7 +131,6 @@ bool FeatureFinder::enableVideoMode()
     ROS_INFO_STREAM("Connection Successful");
 
     this->videoEnabled = true;
-    this->rightFrame->toggleVideoMode(true);
     return true; // everything worked!
 }
 
@@ -149,7 +146,7 @@ void FeatureFinder::videoCallback(const sensor_msgs::Image::ConstPtr& img)
     
     cv_bridge::CvImagePtr cv_ptr;
     try 
-    {
+    { 
         cv_ptr = cv_bridge::toCvCopy(*img, sensor_msgs::image_encodings::BGR8); //enc::RGB8 also used
     }
     catch (cv_bridge::Exception& e) 
@@ -162,11 +159,15 @@ void FeatureFinder::videoCallback(const sensor_msgs::Image::ConstPtr& img)
     {
         this->leftFrame->setImage(cv_ptr->image);
         this->detectAndDescribeFeatures(this->LEFT_IMG);
+        if(leftFrame->getImage().empty())
+            ROS_INFO_STREAM("Left Image Empty");
     }
     if(updateRight)
     {
         this->rightFrame->setImage(cv_ptr->image);
         this->detectAndDescribeFeatures(this->RIGHT_IMG);
+        if(rightFrame->getImage().empty())
+            ROS_INFO_STREAM("Right Image Empty");
     }
     // if either of them is in video mode
     if(updateLeft || updateRight)
@@ -177,27 +178,27 @@ void FeatureFinder::videoCallback(const sensor_msgs::Image::ConstPtr& img)
             ROS_ERROR("Problem computing matches in Video Callback");
             return;
         }
-
-        // show the current frames
-        this->showCurrentFrames();
     }
-
+    // show the current frames
+    this->showCurrentFrames();
 }
 
 
 bool FeatureFinder::detectAndDescribeFeatures(int leftright)
 {
 
-    vector<KeyPoint> holdl = leftFrame->getKeyPoints();
+    vector<KeyPoint> holdl;// = leftFrame->getKeyPoints();
+    Mat imgl;// = leftFrame->getDescriptor();
 
-    Mat imgl = leftFrame->getDescriptor();
-
-    vector<KeyPoint> holdr = rightFrame->getKeyPoints();
-    Mat imgr = rightFrame->getDescriptor();
+    vector<KeyPoint> holdr;// = rightFrame->getKeyPoints();
+    Mat imgr;// = rightFrame->getDescriptor();
 
   if(leftright == this->LEFT_IMG)
   {
     detector->detect(leftFrame->getImage(), holdl);
+
+    if(!holdl.size())
+        ROS_ERROR("left keypoints empty");
 
     leftFrame->setKeyPoints(holdl);
 
@@ -209,6 +210,9 @@ bool FeatureFinder::detectAndDescribeFeatures(int leftright)
   else if(leftright == this->RIGHT_IMG)
   {
     detector->detect(rightFrame->getImage(), holdr);
+
+    if(!holdr.size())
+        ROS_ERROR("right keypoints empty");
 
     rightFrame->setKeyPoints(holdr);
 
@@ -225,11 +229,22 @@ bool FeatureFinder::computeMatches()
 {
     if(!(leftFrame->getDescriptor().empty() || rightFrame->getDescriptor().empty()))
         matcher->match(leftFrame->getDescriptor(), rightFrame->getDescriptor(), this->matches);
+    else
+    {
+        this->matches.clear();
+        ROS_ERROR("DDrawMatches() : Descriptors empty");
+    }
 
-    if(!this->matches.size())
+    if(this->matches.size() == 0)
         ROS_ERROR("could not compute any matches");
 
-    drawMatches(leftFrame->getImage(), leftFrame->getKeyPoints(), rightFrame->getImage(), rightFrame->getKeyPoints(), this->matches, this->img_matches);
+    if(leftFrame->getKeyPoints().size() && rightFrame->getKeyPoints().size())
+        drawMatches(leftFrame->getImage(), leftFrame->getKeyPoints(), rightFrame->getImage(), rightFrame->getKeyPoints(), this->matches, this->img_matches);
+    else
+    {
+        ROS_ERROR("DrawMatches : KeyPoints Empty");
+        return false;
+    }
 
     return true;
 
@@ -242,6 +257,7 @@ bool FeatureFinder::showCurrentFrames()
     {
         ROS_INFO_STREAM("Drawing Matches");
         cv::imshow(this->WINDOW_NAME, this->img_matches);
+        cv::waitKey(5);
         return true;
     }
     else
@@ -273,10 +289,6 @@ bool FeatureFinder::changeImage(int leftright)
     this->computeMatches();
     this->showCurrentFrames();
 }
-
-
-
-
 
 
 
