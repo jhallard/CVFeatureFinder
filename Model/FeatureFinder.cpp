@@ -47,13 +47,16 @@ FeatureFinder::FeatureFinder(const string wind, string leftlistfile, string righ
 
     // create the window for our program
     // ROS_INFO_STREAM("Opening window\n");
-    // cv::namedWindow(WINDOW_NAME);
+     cv::namedWindow(WINDOW_NAME);
 
     // show the matches between the default images
     this->computeMatches();
     this->showCurrentFrames();
 
-    leftFrame->toggleVideoMode(true);
+//TODO:: Remove these lines, we shouldn't auto start video mdoe
+    //leftFrame->toggleVideoMode(true);
+    //rightFrame->toggleVideoMode(true);
+    cv::waitKey(2);
  }
 
 
@@ -232,7 +235,7 @@ bool FeatureFinder::computeMatches()
     else
     {
         this->matches.clear();
-        ROS_ERROR("DDrawMatches() : Descriptors empty");
+        ROS_ERROR("DrawMatches() : Descriptors empty");
     }
 
     if(this->matches.size() == 0)
@@ -255,9 +258,9 @@ bool FeatureFinder::showCurrentFrames()
 {
     if(!this->img_matches.empty())
     {
-        ROS_INFO_STREAM("Drawing Matches");
+        //ROS_INFO_STREAM("Drawing Matches");
         cv::imshow(this->WINDOW_NAME, this->img_matches);
-        cv::waitKey(5);
+        cv::waitKey(2);
         return true;
     }
     else

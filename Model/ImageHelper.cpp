@@ -34,7 +34,10 @@ bool ImageHelper::setListofFiles(string listfile)
     file.close();
 
     this->img = cv::imread(this->filenames[this->currentFileIndex]);
-
+    if(this->img.empty())
+    {
+        ROS_ERROR("Error : Invalid Path to Picture '%s'",this->filenames[this->currentFileIndex].c_str());
+    }
     return true;
 }
 

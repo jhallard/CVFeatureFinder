@@ -1,6 +1,35 @@
 #ifndef FEATURE_FINDER_H_
 #define FEATURE_FINDER_H_
 
+
+/**
+*   @File           - FeatureFinder.h
+*   @Author         - John H Allard
+*   @Date           - 6/19/2014
+*   @Description    - This file holds the declaration of the FeatureFinder class. This class serves as a simplification of some key features
+*                   of the OpenCV and ROS libraries. These features include, importing 2 images, extracting keypoints from the images, detectings
+*                   features present in the images, matching the features together between images, and showing these matches to the user. 
+*                   Also, everything that was just described can also be applied to a video feed from a webcam or kinect camera. This means the user
+*                   can perform real-time matching between a video feed and an image, or even two video feeds!
+*                   
+*                   The main idea behind this program is to show a window that is divided into two parts horizontally. Each of these two parts,
+*                   left and right halves, contains an image or a frame from a video feed. We then compute the keypoints of the individual images
+*                   and extract the features and feature descriptors of the images and/or frame from a video feed. We then match the features
+*                   from both individual images together, and display these images side by side with a line connecting each keypoint. 
+*
+*                   The key features are a few things. First, the Feature Dectection and Feature Descriptor Extractor Algorithms are all customizable
+*                   to the end user. This means the user can build a GUI with push buttons and sliders and calibrate the algorithms in real-time
+*                   to see which combination of parameters works the best for detection of specific objects. 
+*
+*   @PRE-CONDITIONS - Before using this class for video feeds (aka calling FeatureFinder::enableVideoFeed(), you must call roscore to start 
+*                    the ROS drivers. This is because we use the ROS publishing features to transfer video feed data around the class. 
+*
+*                   - You must also call 'roslaunch openni_launch openni.launch' if you wish to use a kinect camera as the video feed.
+*
+*                   - You must have the desktop build of ros-hydro installed on your computer, other versions might work but have not been tested.
+*
+*
+**/
 // Self-Defined includes
 #include "ImageHelper.h"
 

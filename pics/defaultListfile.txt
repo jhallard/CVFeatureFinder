@@ -1,1 +1,6 @@
 ../pics/default.jpg
+../pics/longhammer/lh1.jpg
+../pics/longhammer/lh2.jpg
+../pics/longhammer/lh3.jpg
+../pics/longhammer/lh4.jpg
+../pics/longhammer/lh5.png
