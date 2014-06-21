@@ -67,9 +67,9 @@ private:
     // ---  MEMBER FIELDS --- //
     //========================//
 
-    /**___Image, window, and Video-Feed Fields__**/
-    ImageHelper * leftFrame;   // a helper class that contains an image, it's keypoints, and it's descriptors. We have one for the left frame
-    ImageHelper * rightFrame;  // and one for the right frame. These items are wrapped in a class for convenience and to simplify this class.
+    /**___Image, Window, and Video-Feed Fields__**/
+    ImageHelper * leftFrame;        // a helper class that contains an image, it's keypoints, and it's descriptors. We have one for the left frame
+    ImageHelper * rightFrame;       // and one for the right frame. These items are wrapped in a class for convenience and to simplify this class.
     bool pauseLeft, pauseRight, videoLeft, videoRight; // state flags that determine if the user wants to forward video feed to the 
                                                        // left and/or right frames, and if they want to currently pause the video feed
     
@@ -98,7 +98,7 @@ private:
     bool setFeatureDetector( string type );
 
     // changes the type of extractor we are using (SIFT or SURF currently)
-    bool setFeatureExtractor( string type);
+    bool setFeatureExtractor( string type );
 
     // detects and computes descriptors for either the left or right image/video feed
     bool detectAndDescribeFeatures(int leftright); 
@@ -145,17 +145,12 @@ public:
     bool getPause(int leftright) const;
 
 
-
-
     //----===========================----//
     // ---      PUBLIC DEFINES       --- //
     //----===========================----//
     const int LEFT_IMG;         // an int that refers to the left image of the screen
     const int RIGHT_IMG;        // && same for the right image
     const string WINDOW_NAME;   // name of the window that this program makes
-
-
-
 };
 
 
