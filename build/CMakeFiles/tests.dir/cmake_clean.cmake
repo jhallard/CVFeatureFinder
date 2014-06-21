@@ -1,4 +1,5 @@
 FILE(REMOVE_RECURSE
+  "FeatureFinder_automoc.cpp"
   "CMakeFiles/tests"
 )
 

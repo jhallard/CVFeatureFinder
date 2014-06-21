@@ -1,4 +1,5 @@
 FILE(REMOVE_RECURSE
+  "FeatureFinder_automoc.cpp"
   "CMakeFiles/rosgraph_msgs_generate_messages_py"
 )
 

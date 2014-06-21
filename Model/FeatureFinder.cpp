@@ -1,4 +1,4 @@
-*#include "FeatureFinder.h"
+#include "FeatureFinder.h"
 
 
 // default constructor

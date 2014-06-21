@@ -70,7 +70,7 @@ private:
     /**___Image, Window, and Video-Feed Fields__**/
     ImageHelper * leftFrame;        // a helper class that contains an image, it's keypoints, and it's descriptors. We have one for the left frame
     ImageHelper * rightFrame;       // and one for the right frame. These items are wrapped in a class for convenience and to simplify this class.
-    bool pauseLeft, pauseRight, videoLeft, videoRight; // state flags that determine if the user wants to forward video feed to the 
+    bool pauseLeft, pauseRight, videoLeft, videoRight, videoEnabled; // state flags that determine if the user wants to forward video feed to the 
                                                        // left and/or right frames, and if they want to currently pause the video feed
     
     /**___OpenCV Related Fields__**/    

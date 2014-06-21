@@ -1,4 +1,5 @@
-/home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles/CVFeatureFinder.dir
+/home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles/FeatureFinder.dir
+/home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles/FeatureFinder_automoc.dir
 /home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles/clean_test_results.dir
 /home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles/doxygen.dir
 /home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/gtest/CMakeFiles/gtest.dir

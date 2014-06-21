@@ -147,17 +147,30 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named CVFeatureFinder
+# Target rules for targets named FeatureFinder
 
 # Build rule for target.
-CVFeatureFinder: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 CVFeatureFinder
-.PHONY : CVFeatureFinder
+FeatureFinder: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 FeatureFinder
+.PHONY : FeatureFinder
 
 # fast build rule for target.
-CVFeatureFinder/fast:
-	$(MAKE) -f CMakeFiles/CVFeatureFinder.dir/build.make CMakeFiles/CVFeatureFinder.dir/build
-.PHONY : CVFeatureFinder/fast
+FeatureFinder/fast:
+	$(MAKE) -f CMakeFiles/FeatureFinder.dir/build.make CMakeFiles/FeatureFinder.dir/build
+.PHONY : FeatureFinder/fast
+
+#=============================================================================
+# Target rules for targets named FeatureFinder_automoc
+
+# Build rule for target.
+FeatureFinder_automoc: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 FeatureFinder_automoc
+.PHONY : FeatureFinder_automoc
+
+# fast build rule for target.
+FeatureFinder_automoc/fast:
+	$(MAKE) -f CMakeFiles/FeatureFinder_automoc.dir/build.make CMakeFiles/FeatureFinder_automoc.dir/build
+.PHONY : FeatureFinder_automoc/fast
 
 #=============================================================================
 # Target rules for targets named clean_test_results
@@ -354,12 +367,36 @@ gtest_main/fast:
 	$(MAKE) -f gtest/CMakeFiles/gtest_main.dir/build.make gtest/CMakeFiles/gtest_main.dir/build
 .PHONY : gtest_main/fast
 
+Controller/CVFF_Controller.o: Controller/CVFF_Controller.cpp.o
+.PHONY : Controller/CVFF_Controller.o
+
+# target to build an object file
+Controller/CVFF_Controller.cpp.o:
+	$(MAKE) -f CMakeFiles/FeatureFinder.dir/build.make CMakeFiles/FeatureFinder.dir/Controller/CVFF_Controller.cpp.o
+.PHONY : Controller/CVFF_Controller.cpp.o
+
+Controller/CVFF_Controller.i: Controller/CVFF_Controller.cpp.i
+.PHONY : Controller/CVFF_Controller.i
+
+# target to preprocess a source file
+Controller/CVFF_Controller.cpp.i:
+	$(MAKE) -f CMakeFiles/FeatureFinder.dir/build.make CMakeFiles/FeatureFinder.dir/Controller/CVFF_Controller.cpp.i
+.PHONY : Controller/CVFF_Controller.cpp.i
+
+Controller/CVFF_Controller.s: Controller/CVFF_Controller.cpp.s
+.PHONY : Controller/CVFF_Controller.s
+
+# target to generate assembly for a file
+Controller/CVFF_Controller.cpp.s:
+	$(MAKE) -f CMakeFiles/FeatureFinder.dir/build.make CMakeFiles/FeatureFinder.dir/Controller/CVFF_Controller.cpp.s
+.PHONY : Controller/CVFF_Controller.cpp.s
+
 Controller/main.o: Controller/main.cpp.o
 .PHONY : Controller/main.o
 
 # target to build an object file
 Controller/main.cpp.o:
-	$(MAKE) -f CMakeFiles/CVFeatureFinder.dir/build.make CMakeFiles/CVFeatureFinder.dir/Controller/main.cpp.o
+	$(MAKE) -f CMakeFiles/FeatureFinder.dir/build.make CMakeFiles/FeatureFinder.dir/Controller/main.cpp.o
 .PHONY : Controller/main.cpp.o
 
 Controller/main.i: Controller/main.cpp.i
@@ -367,7 +404,7 @@ Controller/main.i: Controller/main.cpp.i
 
 # target to preprocess a source file
 Controller/main.cpp.i:
-	$(MAKE) -f CMakeFiles/CVFeatureFinder.dir/build.make CMakeFiles/CVFeatureFinder.dir/Controller/main.cpp.i
+	$(MAKE) -f CMakeFiles/FeatureFinder.dir/build.make CMakeFiles/FeatureFinder.dir/Controller/main.cpp.i
 .PHONY : Controller/main.cpp.i
 
 Controller/main.s: Controller/main.cpp.s
@@ -375,15 +412,39 @@ Controller/main.s: Controller/main.cpp.s
 
 # target to generate assembly for a file
 Controller/main.cpp.s:
-	$(MAKE) -f CMakeFiles/CVFeatureFinder.dir/build.make CMakeFiles/CVFeatureFinder.dir/Controller/main.cpp.s
+	$(MAKE) -f CMakeFiles/FeatureFinder.dir/build.make CMakeFiles/FeatureFinder.dir/Controller/main.cpp.s
 .PHONY : Controller/main.cpp.s
+
+FeatureFinder_automoc.o: FeatureFinder_automoc.cpp.o
+.PHONY : FeatureFinder_automoc.o
+
+# target to build an object file
+FeatureFinder_automoc.cpp.o:
+	$(MAKE) -f CMakeFiles/FeatureFinder.dir/build.make CMakeFiles/FeatureFinder.dir/FeatureFinder_automoc.cpp.o
+.PHONY : FeatureFinder_automoc.cpp.o
+
+FeatureFinder_automoc.i: FeatureFinder_automoc.cpp.i
+.PHONY : FeatureFinder_automoc.i
+
+# target to preprocess a source file
+FeatureFinder_automoc.cpp.i:
+	$(MAKE) -f CMakeFiles/FeatureFinder.dir/build.make CMakeFiles/FeatureFinder.dir/FeatureFinder_automoc.cpp.i
+.PHONY : FeatureFinder_automoc.cpp.i
+
+FeatureFinder_automoc.s: FeatureFinder_automoc.cpp.s
+.PHONY : FeatureFinder_automoc.s
+
+# target to generate assembly for a file
+FeatureFinder_automoc.cpp.s:
+	$(MAKE) -f CMakeFiles/FeatureFinder.dir/build.make CMakeFiles/FeatureFinder.dir/FeatureFinder_automoc.cpp.s
+.PHONY : FeatureFinder_automoc.cpp.s
 
 Model/FeatureFinder.o: Model/FeatureFinder.cpp.o
 .PHONY : Model/FeatureFinder.o
 
 # target to build an object file
 Model/FeatureFinder.cpp.o:
-	$(MAKE) -f CMakeFiles/CVFeatureFinder.dir/build.make CMakeFiles/CVFeatureFinder.dir/Model/FeatureFinder.cpp.o
+	$(MAKE) -f CMakeFiles/FeatureFinder.dir/build.make CMakeFiles/FeatureFinder.dir/Model/FeatureFinder.cpp.o
 .PHONY : Model/FeatureFinder.cpp.o
 
 Model/FeatureFinder.i: Model/FeatureFinder.cpp.i
@@ -391,7 +452,7 @@ Model/FeatureFinder.i: Model/FeatureFinder.cpp.i
 
 # target to preprocess a source file
 Model/FeatureFinder.cpp.i:
-	$(MAKE) -f CMakeFiles/CVFeatureFinder.dir/build.make CMakeFiles/CVFeatureFinder.dir/Model/FeatureFinder.cpp.i
+	$(MAKE) -f CMakeFiles/FeatureFinder.dir/build.make CMakeFiles/FeatureFinder.dir/Model/FeatureFinder.cpp.i
 .PHONY : Model/FeatureFinder.cpp.i
 
 Model/FeatureFinder.s: Model/FeatureFinder.cpp.s
@@ -399,7 +460,7 @@ Model/FeatureFinder.s: Model/FeatureFinder.cpp.s
 
 # target to generate assembly for a file
 Model/FeatureFinder.cpp.s:
-	$(MAKE) -f CMakeFiles/CVFeatureFinder.dir/build.make CMakeFiles/CVFeatureFinder.dir/Model/FeatureFinder.cpp.s
+	$(MAKE) -f CMakeFiles/FeatureFinder.dir/build.make CMakeFiles/FeatureFinder.dir/Model/FeatureFinder.cpp.s
 .PHONY : Model/FeatureFinder.cpp.s
 
 Model/ImageHelper.o: Model/ImageHelper.cpp.o
@@ -407,7 +468,7 @@ Model/ImageHelper.o: Model/ImageHelper.cpp.o
 
 # target to build an object file
 Model/ImageHelper.cpp.o:
-	$(MAKE) -f CMakeFiles/CVFeatureFinder.dir/build.make CMakeFiles/CVFeatureFinder.dir/Model/ImageHelper.cpp.o
+	$(MAKE) -f CMakeFiles/FeatureFinder.dir/build.make CMakeFiles/FeatureFinder.dir/Model/ImageHelper.cpp.o
 .PHONY : Model/ImageHelper.cpp.o
 
 Model/ImageHelper.i: Model/ImageHelper.cpp.i
@@ -415,7 +476,7 @@ Model/ImageHelper.i: Model/ImageHelper.cpp.i
 
 # target to preprocess a source file
 Model/ImageHelper.cpp.i:
-	$(MAKE) -f CMakeFiles/CVFeatureFinder.dir/build.make CMakeFiles/CVFeatureFinder.dir/Model/ImageHelper.cpp.i
+	$(MAKE) -f CMakeFiles/FeatureFinder.dir/build.make CMakeFiles/FeatureFinder.dir/Model/ImageHelper.cpp.i
 .PHONY : Model/ImageHelper.cpp.i
 
 Model/ImageHelper.s: Model/ImageHelper.cpp.s
@@ -423,8 +484,32 @@ Model/ImageHelper.s: Model/ImageHelper.cpp.s
 
 # target to generate assembly for a file
 Model/ImageHelper.cpp.s:
-	$(MAKE) -f CMakeFiles/CVFeatureFinder.dir/build.make CMakeFiles/CVFeatureFinder.dir/Model/ImageHelper.cpp.s
+	$(MAKE) -f CMakeFiles/FeatureFinder.dir/build.make CMakeFiles/FeatureFinder.dir/Model/ImageHelper.cpp.s
 .PHONY : Model/ImageHelper.cpp.s
+
+View/CVFF_MainWindow.o: View/CVFF_MainWindow.cpp.o
+.PHONY : View/CVFF_MainWindow.o
+
+# target to build an object file
+View/CVFF_MainWindow.cpp.o:
+	$(MAKE) -f CMakeFiles/FeatureFinder.dir/build.make CMakeFiles/FeatureFinder.dir/View/CVFF_MainWindow.cpp.o
+.PHONY : View/CVFF_MainWindow.cpp.o
+
+View/CVFF_MainWindow.i: View/CVFF_MainWindow.cpp.i
+.PHONY : View/CVFF_MainWindow.i
+
+# target to preprocess a source file
+View/CVFF_MainWindow.cpp.i:
+	$(MAKE) -f CMakeFiles/FeatureFinder.dir/build.make CMakeFiles/FeatureFinder.dir/View/CVFF_MainWindow.cpp.i
+.PHONY : View/CVFF_MainWindow.cpp.i
+
+View/CVFF_MainWindow.s: View/CVFF_MainWindow.cpp.s
+.PHONY : View/CVFF_MainWindow.s
+
+# target to generate assembly for a file
+View/CVFF_MainWindow.cpp.s:
+	$(MAKE) -f CMakeFiles/FeatureFinder.dir/build.make CMakeFiles/FeatureFinder.dir/View/CVFF_MainWindow.cpp.s
+.PHONY : View/CVFF_MainWindow.cpp.s
 
 # Help Target
 help:
@@ -432,7 +517,8 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... CVFeatureFinder"
+	@echo "... FeatureFinder"
+	@echo "... FeatureFinder_automoc"
 	@echo "... clean_test_results"
 	@echo "... doxygen"
 	@echo "... edit_cache"
@@ -455,15 +541,24 @@ help:
 	@echo "... tests"
 	@echo "... gtest"
 	@echo "... gtest_main"
+	@echo "... Controller/CVFF_Controller.o"
+	@echo "... Controller/CVFF_Controller.i"
+	@echo "... Controller/CVFF_Controller.s"
 	@echo "... Controller/main.o"
 	@echo "... Controller/main.i"
 	@echo "... Controller/main.s"
+	@echo "... FeatureFinder_automoc.o"
+	@echo "... FeatureFinder_automoc.i"
+	@echo "... FeatureFinder_automoc.s"
 	@echo "... Model/FeatureFinder.o"
 	@echo "... Model/FeatureFinder.i"
 	@echo "... Model/FeatureFinder.s"
 	@echo "... Model/ImageHelper.o"
 	@echo "... Model/ImageHelper.i"
 	@echo "... Model/ImageHelper.s"
+	@echo "... View/CVFF_MainWindow.o"
+	@echo "... View/CVFF_MainWindow.i"
+	@echo "... View/CVFF_MainWindow.s"
 .PHONY : help
 
 

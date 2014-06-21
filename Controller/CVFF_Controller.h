@@ -6,6 +6,7 @@
 class CVFF_Controller
 {
 private:
+	int x;
 	//=====================//
 	//PRIVATE MEMBER FIELDS//
     //=====================//

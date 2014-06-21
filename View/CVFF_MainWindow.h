@@ -3,6 +3,12 @@
 
 #include <QtGui/QMainWindow>
 #include <QtGui/QPushButton>
+
+// ROS includes
+#include "ros/ros.h"
+#include <sensor_msgs/image_encodings.h>
+#include "sensor_msgs/Image.h"
+
  
 namespace Ui {
     class CVFF_MainWindow;
@@ -14,6 +20,11 @@ class CVFF_MainWindow : public QMainWindow
  
 public:
     explicit CVFF_MainWindow(QWidget *parent = 0);
+    
+    ~CVFF_MainWindow()
+    {
+    	int x = 0;
+    }
  
 private slots:
     void handleButton();

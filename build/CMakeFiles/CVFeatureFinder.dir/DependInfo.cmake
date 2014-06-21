@@ -4,9 +4,11 @@ SET(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 SET(CMAKE_DEPENDS_CHECK_CXX
+  "/home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/Controller/CVFF_Controller.cpp" "/home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles/CVFeatureFinder.dir/Controller/CVFF_Controller.cpp.o"
   "/home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/Controller/main.cpp" "/home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles/CVFeatureFinder.dir/Controller/main.cpp.o"
   "/home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/Model/FeatureFinder.cpp" "/home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles/CVFeatureFinder.dir/Model/FeatureFinder.cpp.o"
   "/home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/Model/ImageHelper.cpp" "/home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles/CVFeatureFinder.dir/Model/ImageHelper.cpp.o"
+  "/home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/View/CVFF_MainWindow.cpp" "/home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles/CVFeatureFinder.dir/View/CVFF_MainWindow.cpp.o"
   )
 SET(CMAKE_CXX_COMPILER_ID "GNU")
 

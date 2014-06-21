@@ -69,9 +69,32 @@ CMakeFiles/CVFeatureFinder.dir/Controller/main.cpp.o.provides: CMakeFiles/CVFeat
 
 CMakeFiles/CVFeatureFinder.dir/Controller/main.cpp.o.provides.build: CMakeFiles/CVFeatureFinder.dir/Controller/main.cpp.o
 
+CMakeFiles/CVFeatureFinder.dir/Controller/CVFF_Controller.cpp.o: CMakeFiles/CVFeatureFinder.dir/flags.make
+CMakeFiles/CVFeatureFinder.dir/Controller/CVFF_Controller.cpp.o: ../Controller/CVFF_Controller.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles $(CMAKE_PROGRESS_2)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/CVFeatureFinder.dir/Controller/CVFF_Controller.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/CVFeatureFinder.dir/Controller/CVFF_Controller.cpp.o -c /home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/Controller/CVFF_Controller.cpp
+
+CMakeFiles/CVFeatureFinder.dir/Controller/CVFF_Controller.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CVFeatureFinder.dir/Controller/CVFF_Controller.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/Controller/CVFF_Controller.cpp > CMakeFiles/CVFeatureFinder.dir/Controller/CVFF_Controller.cpp.i
+
+CMakeFiles/CVFeatureFinder.dir/Controller/CVFF_Controller.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CVFeatureFinder.dir/Controller/CVFF_Controller.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/Controller/CVFF_Controller.cpp -o CMakeFiles/CVFeatureFinder.dir/Controller/CVFF_Controller.cpp.s
+
+CMakeFiles/CVFeatureFinder.dir/Controller/CVFF_Controller.cpp.o.requires:
+.PHONY : CMakeFiles/CVFeatureFinder.dir/Controller/CVFF_Controller.cpp.o.requires
+
+CMakeFiles/CVFeatureFinder.dir/Controller/CVFF_Controller.cpp.o.provides: CMakeFiles/CVFeatureFinder.dir/Controller/CVFF_Controller.cpp.o.requires
+	$(MAKE) -f CMakeFiles/CVFeatureFinder.dir/build.make CMakeFiles/CVFeatureFinder.dir/Controller/CVFF_Controller.cpp.o.provides.build
+.PHONY : CMakeFiles/CVFeatureFinder.dir/Controller/CVFF_Controller.cpp.o.provides
+
+CMakeFiles/CVFeatureFinder.dir/Controller/CVFF_Controller.cpp.o.provides.build: CMakeFiles/CVFeatureFinder.dir/Controller/CVFF_Controller.cpp.o
+
 CMakeFiles/CVFeatureFinder.dir/Model/FeatureFinder.cpp.o: CMakeFiles/CVFeatureFinder.dir/flags.make
 CMakeFiles/CVFeatureFinder.dir/Model/FeatureFinder.cpp.o: ../Model/FeatureFinder.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles $(CMAKE_PROGRESS_2)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/CVFeatureFinder.dir/Model/FeatureFinder.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/CVFeatureFinder.dir/Model/FeatureFinder.cpp.o -c /home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/Model/FeatureFinder.cpp
 
@@ -94,7 +117,7 @@ CMakeFiles/CVFeatureFinder.dir/Model/FeatureFinder.cpp.o.provides.build: CMakeFi
 
 CMakeFiles/CVFeatureFinder.dir/Model/ImageHelper.cpp.o: CMakeFiles/CVFeatureFinder.dir/flags.make
 CMakeFiles/CVFeatureFinder.dir/Model/ImageHelper.cpp.o: ../Model/ImageHelper.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles $(CMAKE_PROGRESS_3)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles $(CMAKE_PROGRESS_4)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/CVFeatureFinder.dir/Model/ImageHelper.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/CVFeatureFinder.dir/Model/ImageHelper.cpp.o -c /home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/Model/ImageHelper.cpp
 
@@ -115,18 +138,45 @@ CMakeFiles/CVFeatureFinder.dir/Model/ImageHelper.cpp.o.provides: CMakeFiles/CVFe
 
 CMakeFiles/CVFeatureFinder.dir/Model/ImageHelper.cpp.o.provides.build: CMakeFiles/CVFeatureFinder.dir/Model/ImageHelper.cpp.o
 
+CMakeFiles/CVFeatureFinder.dir/View/CVFF_MainWindow.cpp.o: CMakeFiles/CVFeatureFinder.dir/flags.make
+CMakeFiles/CVFeatureFinder.dir/View/CVFF_MainWindow.cpp.o: ../View/CVFF_MainWindow.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles $(CMAKE_PROGRESS_5)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/CVFeatureFinder.dir/View/CVFF_MainWindow.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/CVFeatureFinder.dir/View/CVFF_MainWindow.cpp.o -c /home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/View/CVFF_MainWindow.cpp
+
+CMakeFiles/CVFeatureFinder.dir/View/CVFF_MainWindow.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/CVFeatureFinder.dir/View/CVFF_MainWindow.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/View/CVFF_MainWindow.cpp > CMakeFiles/CVFeatureFinder.dir/View/CVFF_MainWindow.cpp.i
+
+CMakeFiles/CVFeatureFinder.dir/View/CVFF_MainWindow.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/CVFeatureFinder.dir/View/CVFF_MainWindow.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/View/CVFF_MainWindow.cpp -o CMakeFiles/CVFeatureFinder.dir/View/CVFF_MainWindow.cpp.s
+
+CMakeFiles/CVFeatureFinder.dir/View/CVFF_MainWindow.cpp.o.requires:
+.PHONY : CMakeFiles/CVFeatureFinder.dir/View/CVFF_MainWindow.cpp.o.requires
+
+CMakeFiles/CVFeatureFinder.dir/View/CVFF_MainWindow.cpp.o.provides: CMakeFiles/CVFeatureFinder.dir/View/CVFF_MainWindow.cpp.o.requires
+	$(MAKE) -f CMakeFiles/CVFeatureFinder.dir/build.make CMakeFiles/CVFeatureFinder.dir/View/CVFF_MainWindow.cpp.o.provides.build
+.PHONY : CMakeFiles/CVFeatureFinder.dir/View/CVFF_MainWindow.cpp.o.provides
+
+CMakeFiles/CVFeatureFinder.dir/View/CVFF_MainWindow.cpp.o.provides.build: CMakeFiles/CVFeatureFinder.dir/View/CVFF_MainWindow.cpp.o
+
 # Object files for target CVFeatureFinder
 CVFeatureFinder_OBJECTS = \
 "CMakeFiles/CVFeatureFinder.dir/Controller/main.cpp.o" \
+"CMakeFiles/CVFeatureFinder.dir/Controller/CVFF_Controller.cpp.o" \
 "CMakeFiles/CVFeatureFinder.dir/Model/FeatureFinder.cpp.o" \
-"CMakeFiles/CVFeatureFinder.dir/Model/ImageHelper.cpp.o"
+"CMakeFiles/CVFeatureFinder.dir/Model/ImageHelper.cpp.o" \
+"CMakeFiles/CVFeatureFinder.dir/View/CVFF_MainWindow.cpp.o"
 
 # External object files for target CVFeatureFinder
 CVFeatureFinder_EXTERNAL_OBJECTS =
 
 CVFeatureFinder: CMakeFiles/CVFeatureFinder.dir/Controller/main.cpp.o
+CVFeatureFinder: CMakeFiles/CVFeatureFinder.dir/Controller/CVFF_Controller.cpp.o
 CVFeatureFinder: CMakeFiles/CVFeatureFinder.dir/Model/FeatureFinder.cpp.o
 CVFeatureFinder: CMakeFiles/CVFeatureFinder.dir/Model/ImageHelper.cpp.o
+CVFeatureFinder: CMakeFiles/CVFeatureFinder.dir/View/CVFF_MainWindow.cpp.o
 CVFeatureFinder: /opt/ros/hydro/lib/libroscpp.so
 CVFeatureFinder: /usr/lib/libboost_signals-mt.so
 CVFeatureFinder: /usr/lib/libboost_filesystem-mt.so
@@ -174,8 +224,10 @@ CMakeFiles/CVFeatureFinder.dir/build: CVFeatureFinder
 .PHONY : CMakeFiles/CVFeatureFinder.dir/build
 
 CMakeFiles/CVFeatureFinder.dir/requires: CMakeFiles/CVFeatureFinder.dir/Controller/main.cpp.o.requires
+CMakeFiles/CVFeatureFinder.dir/requires: CMakeFiles/CVFeatureFinder.dir/Controller/CVFF_Controller.cpp.o.requires
 CMakeFiles/CVFeatureFinder.dir/requires: CMakeFiles/CVFeatureFinder.dir/Model/FeatureFinder.cpp.o.requires
 CMakeFiles/CVFeatureFinder.dir/requires: CMakeFiles/CVFeatureFinder.dir/Model/ImageHelper.cpp.o.requires
+CMakeFiles/CVFeatureFinder.dir/requires: CMakeFiles/CVFeatureFinder.dir/View/CVFF_MainWindow.cpp.o.requires
 .PHONY : CMakeFiles/CVFeatureFinder.dir/requires
 
 CMakeFiles/CVFeatureFinder.dir/clean:

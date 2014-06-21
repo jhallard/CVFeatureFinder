@@ -50,38 +50,69 @@ CMAKE_SOURCE_DIR = /home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder
 CMAKE_BINARY_DIR = /home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build
 
 #=============================================================================
-# Target rules for target CMakeFiles/CVFeatureFinder.dir
+# Target rules for target CMakeFiles/FeatureFinder.dir
 
 # All Build rule for target.
-CMakeFiles/CVFeatureFinder.dir/all:
-	$(MAKE) -f CMakeFiles/CVFeatureFinder.dir/build.make CMakeFiles/CVFeatureFinder.dir/depend
-	$(MAKE) -f CMakeFiles/CVFeatureFinder.dir/build.make CMakeFiles/CVFeatureFinder.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles  1 2 3
-	@echo "Built target CVFeatureFinder"
-.PHONY : CMakeFiles/CVFeatureFinder.dir/all
+CMakeFiles/FeatureFinder.dir/all: CMakeFiles/FeatureFinder_automoc.dir/all
+	$(MAKE) -f CMakeFiles/FeatureFinder.dir/build.make CMakeFiles/FeatureFinder.dir/depend
+	$(MAKE) -f CMakeFiles/FeatureFinder.dir/build.make CMakeFiles/FeatureFinder.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles  1 2 3 4 5 6
+	@echo "Built target FeatureFinder"
+.PHONY : CMakeFiles/FeatureFinder.dir/all
 
 # Include target in all.
-all: CMakeFiles/CVFeatureFinder.dir/all
+all: CMakeFiles/FeatureFinder.dir/all
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/CVFeatureFinder.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles 3
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/CVFeatureFinder.dir/all
+CMakeFiles/FeatureFinder.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles 7
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/FeatureFinder.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles 0
-.PHONY : CMakeFiles/CVFeatureFinder.dir/rule
+.PHONY : CMakeFiles/FeatureFinder.dir/rule
 
 # Convenience name for target.
-CVFeatureFinder: CMakeFiles/CVFeatureFinder.dir/rule
-.PHONY : CVFeatureFinder
+FeatureFinder: CMakeFiles/FeatureFinder.dir/rule
+.PHONY : FeatureFinder
 
 # clean rule for target.
-CMakeFiles/CVFeatureFinder.dir/clean:
-	$(MAKE) -f CMakeFiles/CVFeatureFinder.dir/build.make CMakeFiles/CVFeatureFinder.dir/clean
-.PHONY : CMakeFiles/CVFeatureFinder.dir/clean
+CMakeFiles/FeatureFinder.dir/clean:
+	$(MAKE) -f CMakeFiles/FeatureFinder.dir/build.make CMakeFiles/FeatureFinder.dir/clean
+.PHONY : CMakeFiles/FeatureFinder.dir/clean
 
 # clean rule for target.
-clean: CMakeFiles/CVFeatureFinder.dir/clean
+clean: CMakeFiles/FeatureFinder.dir/clean
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/FeatureFinder_automoc.dir
+
+# All Build rule for target.
+CMakeFiles/FeatureFinder_automoc.dir/all:
+	$(MAKE) -f CMakeFiles/FeatureFinder_automoc.dir/build.make CMakeFiles/FeatureFinder_automoc.dir/depend
+	$(MAKE) -f CMakeFiles/FeatureFinder_automoc.dir/build.make CMakeFiles/FeatureFinder_automoc.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles  7
+	@echo "Built target FeatureFinder_automoc"
+.PHONY : CMakeFiles/FeatureFinder_automoc.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/FeatureFinder_automoc.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles 1
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/FeatureFinder_automoc.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles 0
+.PHONY : CMakeFiles/FeatureFinder_automoc.dir/rule
+
+# Convenience name for target.
+FeatureFinder_automoc: CMakeFiles/FeatureFinder_automoc.dir/rule
+.PHONY : FeatureFinder_automoc
+
+# clean rule for target.
+CMakeFiles/FeatureFinder_automoc.dir/clean:
+	$(MAKE) -f CMakeFiles/FeatureFinder_automoc.dir/build.make CMakeFiles/FeatureFinder_automoc.dir/clean
+.PHONY : CMakeFiles/FeatureFinder_automoc.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/FeatureFinder_automoc.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -122,7 +153,7 @@ clean: CMakeFiles/clean_test_results.dir/clean
 CMakeFiles/doxygen.dir/all:
 	$(MAKE) -f CMakeFiles/doxygen.dir/build.make CMakeFiles/doxygen.dir/depend
 	$(MAKE) -f CMakeFiles/doxygen.dir/build.make CMakeFiles/doxygen.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles  4
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles  8
 	@echo "Built target doxygen"
 .PHONY : CMakeFiles/doxygen.dir/all
 
@@ -510,7 +541,7 @@ gtest/preinstall:
 gtest/CMakeFiles/gtest.dir/all:
 	$(MAKE) -f gtest/CMakeFiles/gtest.dir/build.make gtest/CMakeFiles/gtest.dir/depend
 	$(MAKE) -f gtest/CMakeFiles/gtest.dir/build.make gtest/CMakeFiles/gtest.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles  5
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles  9
 	@echo "Built target gtest"
 .PHONY : gtest/CMakeFiles/gtest.dir/all
 
@@ -541,7 +572,7 @@ clean: gtest/CMakeFiles/gtest.dir/clean
 gtest/CMakeFiles/gtest_main.dir/all: gtest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f gtest/CMakeFiles/gtest_main.dir/build.make gtest/CMakeFiles/gtest_main.dir/depend
 	$(MAKE) -f gtest/CMakeFiles/gtest_main.dir/build.make gtest/CMakeFiles/gtest_main.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles  6
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles  10
 	@echo "Built target gtest_main"
 .PHONY : gtest/CMakeFiles/gtest_main.dir/all
 
