@@ -1,4 +1,4 @@
-#include "FeatureFinder.h"
+*#include "FeatureFinder.h"
 
 
 // default constructor
@@ -34,9 +34,12 @@ FeatureFinder::FeatureFinder(const string wind, string leftlistfile, string righ
     this->pauseLeft = false;
     this->pauseRight = false;
 
+    // set the frames to contain an index of default pictures enumerated in the deafultListFile.txt file.
+    // if the user passes in string arguments for these names then they will simply be overwritten and a new index will be made
     leftFrame = new ImageHelper("../pics/defaultListfile.txt");
     rightFrame = new ImageHelper("../pics/defaultListfile.txt");
 
+    //initialize our feature detect and descriptor extractor
     this->detector = nullptr;
     this->extractor = nullptr;
 
@@ -58,9 +61,6 @@ FeatureFinder::FeatureFinder(const string wind, string leftlistfile, string righ
     this->computeMatches();
     this->showCurrentFrames();
 
-//TODO:: Remove these lines, we shouldn't auto start video mdoe
-    //leftFrame->toggleVideoMode(true);
-    //rightFrame->toggleVideoMode(true);
     cv::waitKey(2);
  }
 
