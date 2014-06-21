@@ -22,9 +22,9 @@ int main(int argc, char ** argv)
     }
 
     
-    while(ros::ok())
-        ros::spinOnce();
-
+    //while(ros::ok())
+    //    ros::spinOnce();
+    ros::spin();
     cv::destroyWindow(finder->WINDOW_NAME);
 
     return 0;

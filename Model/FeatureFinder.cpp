@@ -3,16 +3,14 @@
 
 // default constructor
 FeatureFinder::FeatureFinder(const string wind) 
-: LEFT_IMG(1), RIGHT_IMG(2),
- node(new ros::NodeHandle), matcher(new FlannBasedMatcher()), WINDOW_NAME(wind)
+: LEFT_IMG(1), RIGHT_IMG(2), node(new ros::NodeHandle), matcher(new FlannBasedMatcher()), WINDOW_NAME(wind)
 {
     this->init();
 }
 
 // listfile is the path to .txt file containing the paths to the images that the user wants the left/right frames to cycle through
 FeatureFinder::FeatureFinder(const string wind, string leftlistfile, string rightlistfile)
-: LEFT_IMG(1), RIGHT_IMG(2),
- node(new ros::NodeHandle), matcher(new FlannBasedMatcher()), WINDOW_NAME(wind)
+: LEFT_IMG(1), RIGHT_IMG(2), node(new ros::NodeHandle), matcher(new FlannBasedMatcher()), WINDOW_NAME(wind)
 {
     this->init();
 

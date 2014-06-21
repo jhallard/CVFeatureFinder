@@ -30,6 +30,7 @@
 *
 *
 **/
+
 // Self-Defined includes
 #include "ImageHelper.h"
 
@@ -66,24 +67,24 @@ private:
     // ---  MEMBER FIELDS --- //
     //========================//
 
+    /**___Image, window, and Video-Feed Fields__**/
     ImageHelper * leftFrame;   // a helper class that contains an image, it's keypoints, and it's descriptors. We have one for the left frame
-    ImageHelper * rightFrame;  // and one for the right frame
+    ImageHelper * rightFrame;  // and one for the right frame. These items are wrapped in a class for convenience and to simplify this class.
+    bool pauseLeft, pauseRight, videoLeft, videoRight; // state flags that determine if the user wants to forward video feed to the 
+                                                       // left and/or right frames, and if they want to currently pause the video feed
+    
+    /**___OpenCV Related Fields__**/    
+    cv::Ptr<cv::FeatureDetector> detector;      // A pointer to a FeatureDetector object which contains a Feature detection algorithm.     
+    cv::Ptr<cv::DescriptorExtractor> extractor; // A pointer to an object that extracts descriptors of keypoints.
 
-    // Feature detector and extractor
-    cv::Ptr<cv::FeatureDetector> detector;
-    cv::Ptr<cv::DescriptorExtractor> extractor;
+    cv::FlannBasedMatcher * matcher;            // our matching object (contains the flann matching algorithm)
+    vector<DMatch> matches;                     // vector specifying the matching pairs of keypoints
+    Mat img_matches;                            // the final image that shows all the matches, we write this to the screen
 
-    // feature matcher between the two frames
-    cv::FlannBasedMatcher * matcher;
-    vector<DMatch> matches;
 
-    Mat img_matches;           // the final image that shows all the matches, we write this to the screen
-
-    // ROS related variable
-    ros::NodeHandle * node;          // our ROS node to recieve published video data
-    ros::Subscriber subscriber;    // subscribes to the kinect data feed
-
-    bool pauseLeft, pauseRight, videoLeft, videoRight;
+    /**___ROS related variables__**/
+    ros::NodeHandle * node;                     // our ROS node to subscribe to a video data publisher and to publish ressages ourselves
+    ros::Subscriber subscriber;                 // subscribes to the kinect data feed
 
 
     //----===========================----//
@@ -122,8 +123,8 @@ public:
     //----===================----//
 
     // Constructors
-    FeatureFinder(const string);
-    explicit FeatureFinder(const string, string lfile, string rfile);
+    FeatureFinder(const string);                                // input the name for the cv::NamedWindow object to be referenced under
+    FeatureFinder(const string, string lfile, string rfile);    // 
 
     // Destructor
     ~FeatureFinder();
@@ -149,10 +150,8 @@ public:
     //----===========================----//
     // ---      PUBLIC DEFINES       --- //
     //----===========================----//
-    const int LEFT_IMG;
-    const int RIGHT_IMG;
-    bool videoEnabled;
-
+    const int LEFT_IMG;         // an int that refers to the left image of the screen
+    const int RIGHT_IMG;        // && same for the right image
     const string WINDOW_NAME;   // name of the window that this program makes
 
 
