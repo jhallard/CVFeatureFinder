@@ -244,7 +244,10 @@ bool FeatureFinder::computeMatches()
         this->matches.clear();
         for (int i = 0; i < vecmatches.size(); ++i)
         {
-            const float ratio = 0.8; // As in Lowe's paper; can be tuned
+            // PLAY WITH THE RATIO VALUE, IT MAKES A HUGGGEEE FUCKING DIFFERENCE. 
+            // 0.8 GIVES MORE FALSE POSITIVES BUT ALSO GIVES HIGHER READING ON TRUE-POSITIVES.
+            // 0.75 SEEMS TO BE THE BEST, IT COMPLETELY REJECTS BAD MATCHES BUT HIGHLY MATCHES GOOD IMAGES.
+            const float ratio = 0.75; // As in Lowe's paper; can be tuned
             if (vecmatches[i][0].distance < ratio * vecmatches[i][1].distance)
             {
                 this->matches.push_back(vecmatches[i][0]);

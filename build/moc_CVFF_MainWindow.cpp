@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'CVFF_MainWindow.h'
 **
-** Created: Wed Jul 9 23:17:15 2014
+** Created: Wed Jul 9 23:33:36 2014
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.1)
 **
 ** WARNING! All changes made in this file will be lost!
