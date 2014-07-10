@@ -70,7 +70,7 @@ private:
     /**___Image, Window, and Video-Feed Fields__**/
     ImageHelper * leftFrame;        // a helper class that contains an image, it's keypoints, and it's descriptors. We have one for the left frame
     ImageHelper * rightFrame;       // and one for the right frame. These items are wrapped in a class for convenience and to simplify this class.
-    bool pauseLeft, pauseRight, videoLeft, videoRight, videoEnabled; // state flags that determine if the user wants to forward video feed to the 
+    bool pauseLeft, pauseRight, videoLeft, videoRight; // state flags that determine if the user wants to forward video feed to the 
                                                        // left and/or right frames, and if they want to currently pause the video feed
     
     /**___OpenCV Related Fields__**/    
@@ -79,6 +79,7 @@ private:
 
     cv::FlannBasedMatcher * matcher;            // our matching object (contains the flann matching algorithm)
     vector<DMatch> matches;                     // vector specifying the matching pairs of keypoints
+    vector<vector<cv::DMatch>> vecmatches;
     Mat img_matches;                            // the final image that shows all the matches, we write this to the screen
 
 
@@ -109,10 +110,6 @@ private:
     // show the currently stored images in the left/right ImageHelper objects to the window
     bool showCurrentFrames();
 
-    // changes the currently shown image for either the left or right frame to the next one in the lest of filenames stored in the object
-    // returns false if the frame is currently in video mode 
-    bool changeImage(int leftright);
-
 
 
 
@@ -134,7 +131,6 @@ public:
 
     // callback for our video feed
     void videoCallback (const sensor_msgs::Image::ConstPtr& img);
-
     bool enableVideoMode(); // this only needs to be called once to connect to the webcam/kinect camera. Once that is done then the user can toggle the videomode of 
                             // the left of right frame by calling the ImageHelper::togglevideoMode() function.
 
@@ -144,6 +140,10 @@ public:
     bool togglePause(int leftright);               // toggle the pause on the video feed
     bool getPause(int leftright) const;
 
+    // changes the currently shown image for either the left or right frame to the next one in the lest of filenames stored in the object
+    // returns false if the frame is currently in video mode 
+    bool changeImage(int leftright);
+
 
     //----===========================----//
     // ---      PUBLIC DEFINES       --- //
@@ -151,6 +151,7 @@ public:
     const int LEFT_IMG;         // an int that refers to the left image of the screen
     const int RIGHT_IMG;        // && same for the right image
     const string WINDOW_NAME;   // name of the window that this program makes
+    bool videoEnabled;          // true if the user has called enableVideo and connected to a camera for video input
 };
 
 

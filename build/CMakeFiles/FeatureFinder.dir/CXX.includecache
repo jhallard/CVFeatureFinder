@@ -6,9 +6,15 @@
 
 #IncludeRegexTransform: 
 
-/home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/Controller/../Model/FeatureFinder.h
+/home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/Model/FeatureFinder.cpp
+FeatureFinder.h
+/home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/Model/FeatureFinder.h
+stdio.h
+-
+
+/home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/Model/FeatureFinder.h
 ImageHelper.h
-/home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/Controller/../Model/ImageHelper.h
+/home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/Model/ImageHelper.h
 vector
 -
 string
@@ -20,11 +26,11 @@ iostream
 fstream
 -
 ros/ros.h
-/home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/Controller/../Model/ros/ros.h
+/home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/Model/ros/ros.h
 sensor_msgs/image_encodings.h
 -
 sensor_msgs/Image.h
-/home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/Controller/../Model/sensor_msgs/Image.h
+/home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/Model/sensor_msgs/Image.h
 opencv2/opencv.hpp
 -
 cv_bridge/cv_bridge.h
@@ -38,11 +44,11 @@ opencv2/highgui/highgui.hpp
 opencv2/nonfree/nonfree.hpp
 -
 opencv2/core/core.hpp
-/home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/Controller/../Model/opencv2/core/core.hpp
+/home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/Model/opencv2/core/core.hpp
 opencv2/features2d/features2d.hpp
-/home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/Controller/../Model/opencv2/features2d/features2d.hpp
+/home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/Model/opencv2/features2d/features2d.hpp
 
-/home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/Controller/../Model/ImageHelper.h
+/home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/Model/ImageHelper.h
 opencv2/opencv.hpp
 -
 cv_bridge/cv_bridge.h
@@ -56,9 +62,9 @@ opencv2/highgui/highgui.hpp
 opencv2/nonfree/nonfree.hpp
 -
 opencv2/core/core.hpp
-/home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/Controller/../Model/opencv2/core/core.hpp
+/home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/Model/opencv2/core/core.hpp
 opencv2/features2d/features2d.hpp
-/home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/Controller/../Model/opencv2/features2d/features2d.hpp
+/home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/Model/opencv2/features2d/features2d.hpp
 fstream
 -
 vector
@@ -68,37 +74,11 @@ string
 iostream
 -
 ros/ros.h
-/home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/Controller/../Model/ros/ros.h
+/home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/Model/ros/ros.h
 sensor_msgs/image_encodings.h
 -
 sensor_msgs/Image.h
-/home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/Controller/../Model/sensor_msgs/Image.h
-
-/home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/Controller/../View/CVFF_MainWindow.h
-QtGui/QMainWindow
--
-QtGui/QPushButton
--
-ros/ros.h
-/home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/Controller/../View/ros/ros.h
-sensor_msgs/image_encodings.h
--
-sensor_msgs/Image.h
-/home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/Controller/../View/sensor_msgs/Image.h
-
-/home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/Controller/main.cpp
-../Model/FeatureFinder.h
-/home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/Controller/../Model/FeatureFinder.h
-../View/CVFF_MainWindow.h
-/home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/Controller/../View/CVFF_MainWindow.h
-iostream
--
-QtGui/QApplication
--
-QApplication
--
-QWidget
--
+/home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/Model/sensor_msgs/Image.h
 
 /home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/../View/CVFF_MainWindow.h
 QtGui/QMainWindow
@@ -1362,12 +1342,6 @@ QtCore/qatomic_bootstrap.h
 QtCore/qatomic_arch.h
 -
 
-/usr/include/qt4/QtCore/qbuffer.h
-QtCore/qiodevice.h
--
-QtCore/qbytearray.h
--
-
 /usr/include/qt4/QtCore/qbytearray.h
 QtCore/qatomic.h
 -
@@ -1386,16 +1360,6 @@ QtCore/qglobal.h
 
 /usr/include/qt4/QtCore/qconfig.h
 
-/usr/include/qt4/QtCore/qcoreapplication.h
-QtCore/qobject.h
--
-QtCore/qcoreevent.h
--
-QtCore/qeventloop.h
--
-QtCore/qstringlist.h
--
-
 /usr/include/qt4/QtCore/qcoreevent.h
 QtCore/qnamespace.h
 -
@@ -1410,10 +1374,6 @@ QtCore/qscopedpointer.h
 QtCore/qiodevice.h
 -
 QtCore/qglobal.h
--
-
-/usr/include/qt4/QtCore/qeventloop.h
-QtCore/qobject.h
 -
 
 /usr/include/qt4/QtCore/qfeatures.h
@@ -1564,10 +1524,6 @@ QtCore/qdatastream.h
 QtCore/qnamespace.h
 -
 
-/usr/include/qt4/QtCore/qpointer.h
-QtCore/qobject.h
--
-
 /usr/include/qt4/QtCore/qrect.h
 QtCore/qsize.h
 -
@@ -1704,10 +1660,6 @@ QtCore/QPointF
 QtCore/QPoint
 -
 
-/usr/include/qt4/QtGui/QApplication
-qapplication.h
-/usr/include/qt4/QtGui/qapplication.h
-
 /usr/include/qt4/QtGui/QMainWindow
 qmainwindow.h
 /usr/include/qt4/QtGui/qmainwindow.h
@@ -1720,38 +1672,12 @@ qplatformwindow_qpa.h
 qpushbutton.h
 /usr/include/qt4/QtGui/qpushbutton.h
 
-/usr/include/qt4/QtGui/QWidget
-qwidget.h
-/usr/include/qt4/QtGui/qwidget.h
-
 /usr/include/qt4/QtGui/qabstractbutton.h
 QtGui/qicon.h
 -
 QtGui/qkeysequence.h
 -
 QtGui/qwidget.h
--
-
-/usr/include/qt4/QtGui/qapplication.h
-QtCore/qcoreapplication.h
--
-QtGui/qwindowdefs.h
--
-QtCore/qpoint.h
--
-QtCore/qsize.h
--
-QtGui/qcursor.h
--
-QtGui/qdesktopwidget.h
--
-QtGui/qwidget.h
--
-QtGui/qpalette.h
--
-QtGui/qrgb.h
--
-QtGui/qtransportauth_qws.h
 -
 
 /usr/include/qt4/QtGui/qbrush.h
@@ -1786,10 +1712,6 @@ QtCore/qstringlist.h
 QtCore/qpoint.h
 -
 QtGui/qwindowdefs.h
--
-
-/usr/include/qt4/QtGui/qdesktopwidget.h
-QtGui/qwidget.h
 -
 
 /usr/include/qt4/QtGui/qdrag.h
@@ -2020,22 +1942,6 @@ QtCore/qline.h
 QtCore/qpoint.h
 -
 QtCore/qrect.h
--
-
-/usr/include/qt4/QtGui/qtransportauth_qws.h
-QtCore/qglobal.h
--
-QtCore/qobject.h
--
-QtCore/qhash.h
--
-QtCore/qstring.h
--
-QtCore/qbuffer.h
--
-QtCore/qpointer.h
--
-sys/types.h
 -
 
 /usr/include/qt4/QtGui/qwidget.h

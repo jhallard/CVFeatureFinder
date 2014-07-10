@@ -56,8 +56,8 @@ Building CXX object CMakeFiles/cmTryCompileExec.dir/CheckSymbolExists.cxx.o
 /usr/bin/c++    -I/usr/include/qt4    -o CMakeFiles/cmTryCompileExec.dir/CheckSymbolExists.cxx.o -c /home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
 /home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx: In function ‘int main()’:
 /home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:8:25: error: ‘Q_WS_QWS’ was not declared in this scope
-make[1]: Leaving directory `/home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles/CMakeTmp'
 make[1]: *** [CMakeFiles/cmTryCompileExec.dir/CheckSymbolExists.cxx.o] Error 1
+make[1]: Leaving directory `/home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles/CMakeTmp'
 make: *** [cmTryCompileExec/fast] Error 2
 
 File /home/jhallard/HMCREU/OpenCvRelated/CVFeatureFinder/build/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:

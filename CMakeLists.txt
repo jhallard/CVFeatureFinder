@@ -12,8 +12,8 @@ ADD_DEFINITIONS(${QT_DEFINITIONS})
 add_definitions(-std=c++0x)
 
 SET(CVFeatureFinder_SOURCES Controller/main.cpp Controller/CVFF_Controller.cpp Model/FeatureFinder.cpp Model/ImageHelper.cpp View/CVFF_MainWindow.cpp)
-SET(test_FORMS CVFF_MainWindow.ui)
-SET(CVFeatureFinder_HEADERS ${QVFeatureFinder_HDRS} Model/FeatureFinder.h Model/ImageHelper.h Controller/CVFF_Controller.h View/CVFF_MainWindow.h)
+SET(CVFeatureFinder_FORMS CVFF_MainWindow.ui)
+SET(CVFeatureFinder_HEADERS ${CVFeatureFinder_HDRS} Model/FeatureFinder.h Model/ImageHelper.h Controller/CVFF_Controller.h View/CVFF_MainWindow.h)
 
 QT4_WRAP_CPP(CVFeatureHeader_CPP_FILES ${CVFeatureFinder_MOC_HDRS})
 QT4_WRAP_UI(CVFF_FeatureFinder_FORMS_HEADERS ${CVFF_FeatureFinder_FORMS})

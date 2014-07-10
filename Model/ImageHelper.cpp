@@ -42,11 +42,12 @@ bool ImageHelper::setListofFiles(string listfile)
 bool ImageHelper::setNextImage()
 {
     this->currentFileIndex++;
-    if(this->currentFileIndex == this->listOfFiles.size())
+
+    if(this->currentFileIndex == this->filenames.size())
         this->currentFileIndex = 0;
 
-
     this->img = cv::imread(this->filenames[this->currentFileIndex]);
+
 
     if(this->img.empty())
     {

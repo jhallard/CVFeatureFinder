@@ -1,4 +1,5 @@
 #include "FeatureFinder.h"
+#include <stdio.h>
 
 
 // default constructor
@@ -37,7 +38,7 @@ FeatureFinder::FeatureFinder(const string wind, string leftlistfile, string righ
     // set the frames to contain an index of default pictures enumerated in the deafultListFile.txt file.
     // if the user passes in string arguments for these names then they will simply be overwritten and a new index will be made
     leftFrame = new ImageHelper("../pics/defaultListfile.txt");
-    rightFrame = new ImageHelper("../pics/defaultListfile.txt");
+    rightFrame = new ImageHelper("../pics/defaultListfile1.txt");
 
     //initialize our feature detect and descriptor extractor
     this->detector = nullptr;
@@ -78,15 +79,15 @@ bool FeatureFinder::setFeatureDetector( string type )
 {
     if(type == "SURF" || type == "surf" || type == "Surf")
     {
-        this->detector = new cv::SurfFeatureDetector(3000, 6, 2, true, true);
+        this->detector = new cv::SurfFeatureDetector(800);
     }
     else if(type == "SIFT" || type == "Sift" || type == "sift")
     {
-        this->detector = new cv::SiftFeatureDetector(50);
+        this->detector = new cv::SiftFeatureDetector(80);
     }
     else if(type == "ORB" || type == "Orb" || type == "orb")
     {
-        this->detector = new cv::OrbFeatureDetector(50);
+        this->detector = new cv::OrbFeatureDetector(10);
     }
     else if(type == "MSER" || type == "Mser" || type == "mser")
     {
@@ -235,8 +236,42 @@ bool FeatureFinder::detectAndDescribeFeatures(int leftright)
 
 bool FeatureFinder::computeMatches()
 {
+    std::vector< DMatch > good_matches;
+
     if(!(leftFrame->getDescriptor().empty() || rightFrame->getDescriptor().empty()))
-        matcher->match(leftFrame->getDescriptor(), rightFrame->getDescriptor(), this->matches);
+    {
+        matcher->knnMatch(leftFrame->getDescriptor(), rightFrame->getDescriptor(), this->vecmatches, 2);
+        this->matches.clear();
+        for (int i = 0; i < vecmatches.size(); ++i)
+        {
+            const float ratio = 0.8; // As in Lowe's paper; can be tuned
+            if (vecmatches[i][0].distance < ratio * vecmatches[i][1].distance)
+            {
+                this->matches.push_back(vecmatches[i][0]);
+            }
+        }
+
+        // double max_dist = 0; double min_dist = 100;
+
+        // //-- Quick calculation of max and min distances between keypoints
+        // for( int i = 0; i < leftFrame->getDescriptor().rows; i++ )
+        // { 
+        //     double dist = matches[i].distance;
+        //     if( dist < min_dist ) min_dist = dist;
+        //     if( dist > max_dist ) max_dist = dist;
+        // }
+
+        // printf("-- Max dist : %f \n", max_dist );
+        // printf("-- Min dist : %f \n", min_dist );
+
+        // for( int i = 0; i < leftFrame->getDescriptor().rows; i++ )
+        // { 
+        //     if( this->matches[i].distance <= max(3*min_dist, 0.03) )
+        //     { 
+        //         good_matches.push_back( matches[i]); 
+        //     }
+        // }
+    }
     else
     {
         this->matches.clear();
@@ -247,7 +282,9 @@ bool FeatureFinder::computeMatches()
         ROS_ERROR("could not compute any matches");
 
     if(leftFrame->getKeyPoints().size() && rightFrame->getKeyPoints().size())
+    {
         drawMatches(leftFrame->getImage(), leftFrame->getKeyPoints(), rightFrame->getImage(), rightFrame->getKeyPoints(), this->matches, this->img_matches);
+    }
     else
     {
         ROS_ERROR("DrawMatches : KeyPoints Empty");
@@ -284,13 +321,11 @@ bool FeatureFinder::changeImage(int leftright)
         leftFrame->setNextImage();  // shuffle the image in the left frame
         detectAndDescribeFeatures(this->LEFT_IMG); 
     }
-
     else if(leftright == this->RIGHT_IMG)
     {
         rightFrame->setNextImage(); // shuffle the image in the right frame
         detectAndDescribeFeatures(this->RIGHT_IMG);
     }
-
     else
         return false; // invalid parameter
 
