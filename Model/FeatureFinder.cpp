@@ -79,11 +79,11 @@ bool FeatureFinder::setFeatureDetector( string type )
 {
     if(type == "SURF" || type == "surf" || type == "Surf")
     {
-        this->detector = new cv::SurfFeatureDetector(800);
+        this->detector = new cv::SurfFeatureDetector(700);
     }
     else if(type == "SIFT" || type == "Sift" || type == "sift")
     {
-        this->detector = new cv::SiftFeatureDetector(80);
+        this->detector = new cv::SiftFeatureDetector(400);
     }
     else if(type == "ORB" || type == "Orb" || type == "orb")
     {
